@@ -1,3 +1,42 @@
+::-webkit-input-placeholder { /* Safari, Chrome and Opera */
+    color: #000000;
+    text-align: center;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #000000;
+    text-align: center;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #000000;
+    text-align: center;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #000000;
+    text-align: center;
+}
+::-ms-input-placeholder { /* Edge */
+    color: #000000;
+    text-align: center;
+}
+:placeholder-shown { /* Standard one last! */
+    color: #000000;
+    text-align: center;
+}
+[placeholder]:focus::-webkit-input-placeholder { /* Safari, Chrome and Opera */
+    color: transparent;
+}
+[placeholder]:focus:-moz-placeholder { /* Firefox 18- */
+    color: transparent;
+}
+[placeholder]:focus::-moz-placeholder { /* Firefox 19+ */
+    color: transparent;
+}
+[placeholder]:focus:-ms-input-placeholder { /* IE 10+ */
+    color: transparent;
+}
+[placeholder]:focus::-ms-input-placeholder { /* Edge */
+    color: transparent;
+}
 body
 {
     background-color: #c6c6c6;
@@ -5,6 +44,12 @@ body
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
     padding: 0px;
+}
+button
+{
+    background-color: #9ac6c8 !important;
+    border-color: 1px solid #000000 !important;
+    border-radius: 2px !important;
 }
 h1
 {
@@ -18,6 +63,10 @@ h3
     color: #00444c;
     font-size: 24px;
     margin-bottom: 10px;
+}
+input
+{ 
+    text-align: center; 
 }
 nav
 {
@@ -90,6 +139,10 @@ nav a:hover
     margin: 150px auto;
     width: 50%;
 }
+#logout
+{
+    display: none;
+}
 #login input[type="text"],
 #login input[type="password"]
 {
@@ -99,52 +152,10 @@ nav a:hover
     box-shadow: none;
     display: block;
     margin: 50px auto;
-    width: 150px;
-}
-::-webkit-input-placeholder { /* Safari, Chrome and Opera */
-    color: #000000;
-    text-align: center;
-}
-:-moz-placeholder { /* Firefox 18- */
-    color: #000000;
-    text-align: center;
-}
-::-moz-placeholder { /* Firefox 19+ */
-    color: #000000;
-    text-align: center;
-}
-:-ms-input-placeholder { /* IE 10+ */
-    color: #000000;
-    text-align: center;
-}
-::-ms-input-placeholder { /* Edge */
-    color: #000000;
-    text-align: center;
-}
-:placeholder-shown { /* Standard one last! */
-    color: #000000;
-    text-align: center;
-}
-[placeholder]:focus::-webkit-input-placeholder { /* Safari, Chrome and Opera */
-    color: transparent;
-}
-[placeholder]:focus:-moz-placeholder { /* Firefox 18- */
-    color: transparent;
-}
-[placeholder]:focus::-moz-placeholder { /* Firefox 19+ */
-    color: transparent;
-}
-[placeholder]:focus:-ms-input-placeholder { /* IE 10+ */
-    color: transparent;
-}
-[placeholder]:focus::-ms-input-placeholder { /* Edge */
-    color: transparent;
+    width: 46%;
 }
 #login button
 {
-    background-color: #9ac6c8;
-    border-color: 1px solid #000000;
-    border-radius: 2px;
     margin-top: 20px;
     width: 100px;
 }
@@ -157,6 +168,40 @@ nav a:hover
 {
     float: right;
     margin-right: 27%;
+}
+#register
+{
+    display: none;
+    height: 300px;
+    margin: 150px auto;
+    width: 50%;
+}
+#register div
+{
+    width: 100%;
+}
+#register input[type="text"],
+#register input[type="password"],
+#register input[type="email"]
+{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #000000;
+    box-shadow: none;
+    display: block;
+    margin: 50px auto;
+    width: 100%;
+}
+#register button
+{
+    margin-top: 20px;
+    width: 100%;
+}
+#btn_registration
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 #feeds
 {
@@ -189,17 +234,21 @@ nav a:hover
     font-size: 16px;
     margin-bottom: 10px;
 }
-#feeds .img_main-evidence
+.img_main-evidence
 {
     float: left;
 }
-#feeds .feed-content
+.feed-content
 {
     float: left;
 }
 #list-view
 {
     display: none;
+}
+.share
+{
+    width: 150px;
 }
 #profile
 {
