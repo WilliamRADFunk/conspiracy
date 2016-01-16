@@ -20,6 +20,8 @@ public class FeedsActivity extends AppCompatActivity {
         setContentView(R.layout.feeds_activity);
 
         fm.beginTransaction().replace(R.id.feeds, new NavBarFragment());
+
+
     }
 
 }
