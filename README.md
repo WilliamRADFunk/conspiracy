@@ -20,7 +20,7 @@ discussed in a manner that people would find engaging.
 -	Strengthen up on database concepts and front-end development implementation
 
 # ~~~ Contributors ~~~
-*Evan Glazers – Android Development / Front-End*
+*Evan Glazer – Android Development / Front-End*
 
 *William Funk – Website Creator / Front-End*
 
