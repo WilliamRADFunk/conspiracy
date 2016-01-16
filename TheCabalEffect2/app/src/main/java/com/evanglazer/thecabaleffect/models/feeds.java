@@ -18,7 +18,6 @@ public class feeds extends ParseObject {
 
     public String getTitle()
     {
-
         return title;
     }
 

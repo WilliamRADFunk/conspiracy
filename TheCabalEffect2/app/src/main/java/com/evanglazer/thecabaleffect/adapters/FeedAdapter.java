@@ -1,12 +1,14 @@
 package com.evanglazer.thecabaleffect.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.evanglazer.thecabaleffect.FeedDetailActivity;
 import com.evanglazer.thecabaleffect.R;
 import com.evanglazer.thecabaleffect.models.feeds;
 
@@ -81,8 +83,19 @@ public class FeedAdapter extends BaseAdapter {
             @Override
             public void onClick(View arg0) {
 
+                Intent intent = new Intent(mContext, FeedDetailActivity.class);
+                intent.putExtra("title",
+                        (feedsList.get(position).getTitle()));
+                intent.putExtra("author",
+                        (feedsList.get(position).getAuthor()));
+                intent.putExtra("conspirator",
+                        (feedsList.get(position).getConspiratorCount()));
+                intent.putExtra("comments",
+                        (feedsList.get(position).getCommentCount()));
+                // Start SingleItemView Class
+                mContext.startActivity(intent);
             }
-        });
+            });
 
         return view;
     }

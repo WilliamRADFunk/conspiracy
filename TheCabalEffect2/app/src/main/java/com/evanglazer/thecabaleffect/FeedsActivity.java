@@ -30,6 +30,7 @@ public class FeedsActivity extends Activity {
     FeedAdapter adapter;
     private List<feeds> feedsList = null;
     FragmentManager fm = getFragmentManager();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +39,7 @@ public class FeedsActivity extends Activity {
         fm.beginTransaction().replace(R.id.feeds, new NavBarFragment());
         // Execute RemoteDataTask AsyncTask
         new RemoteDataTask().execute();
+        listview = (ListView) findViewById(R.id.listView2);
     }
 
     // RemoteDataTask AsyncTask
@@ -83,8 +85,7 @@ public class FeedsActivity extends Activity {
 
         @Override
         protected void onPostExecute(Void result) {
-            // Locate the listview in listview_main.xml
-            listview = (ListView) findViewById(R.id.listView2);
+
             // Pass the results into ListViewAdapter.java
             adapter = new FeedAdapter(FeedsActivity.this, feedsList);
             // Binds the Adapter to the ListView
