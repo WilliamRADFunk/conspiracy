@@ -75,9 +75,10 @@
         android:text="100"
         android:paddingLeft="10dp"
         android:id="@+id/textView6"
-        android:layout_below="@+id/authorText"
         android:layout_toRightOf="@+id/feedsTitle"
-        android:layout_toEndOf="@+id/feedsTitle" />
+        android:layout_alignTop="@+id/commentsText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -34,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (username.isFocused())
-                        username.setText("");
-
+                         username.setText("");
                 }
             });
             password.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     register.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+                            Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
                             startActivity(intent);
                         }
                     });

@@ -20,6 +20,7 @@
         android:layout_marginBottom="47dp"
         android:layout_centerHorizontal="true"
         android:text="Username or Email"
+        android:imeOptions="actionNext"
         android:textAlignment="center"
         android:layout_above="@+id/password" />
 
@@ -32,6 +33,7 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:text="Password"
+        android:imeOptions="actionDone"
         android:textAlignment="center" />
 
     <Button

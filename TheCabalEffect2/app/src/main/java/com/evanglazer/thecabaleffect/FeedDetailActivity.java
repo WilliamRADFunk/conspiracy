@@ -64,8 +64,8 @@ public class FeedDetailActivity extends AppCompatActivity {
         author = (TextView) findViewById(R.id.detailAuthorText);
 
         // Load the results into the TextViews
-        title.setText(title.getText().toString());
-        author.setText(author.getText().toString());
+        title.setText(m_title.toString());
+        author.setText(m_author.toString());
         // Execute RemoteDataTask AsyncTask
         new RemoteDataTask().execute();
         listview = (ListView) findViewById(R.id.listView3);

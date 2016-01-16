@@ -13,6 +13,7 @@
         android:id="@+id/postTitle"
         android:text="Title"
         android:textAlignment="center"
+        android:imeOptions="actionNext"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp" />
@@ -54,6 +55,7 @@
         android:inputType="textMultiLine"
         android:ems="10"
         android:id="@+id/synopsisDescription"
+        android:imeOptions="actionDone"
         android:layout_alignLeft="@+id/upload"
         android:layout_alignStart="@+id/upload"
         android:layout_above="@+id/postFeed"
