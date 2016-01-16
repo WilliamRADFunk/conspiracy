@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -69,6 +70,29 @@ public class FeedDetailActivity extends AppCompatActivity {
         // Execute RemoteDataTask AsyncTask
         new RemoteDataTask().execute();
         listview = (ListView) findViewById(R.id.listView3);
+
+        share = (Button) findViewById(R.id.share);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //create the send intent
+                Intent shareIntent =
+                        new Intent(android.content.Intent.ACTION_SEND);
+
+                //set the type
+                shareIntent.setType("text/plain");
+
+                //add a subject
+                shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
+                        "Share the " + m_title.toString() + " to your friends!");
+
+
+                //start the chooser for sharing
+                startActivity(Intent.createChooser(shareIntent,
+                        "Choose the following to share to!"));
+
+            }
+        });
     }
 
     // RemoteDataTask AsyncTask
