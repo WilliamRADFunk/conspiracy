@@ -46,3 +46,26 @@ function share()
 {
 	console.log("Sharing is caring");
 }
+function rate(id)
+{
+	document.getElementById("star-1").className = "";
+	document.getElementById("star-2").className = "";
+	document.getElementById("star-3").className = "";
+
+	if(id === "1")
+	{
+		document.getElementById("star-" + id).className = "chosen";
+	}
+	else if(id === "2")
+	{
+		document.getElementById("star-1").className = "chosen";
+		document.getElementById("star-" + id).className = "chosen";
+	}
+	else
+	{
+		document.getElementById("star-1").className = "chosen";
+		document.getElementById("star-2").className = "chosen";
+		document.getElementById("star-" + id).className = "chosen";
+	}
+	// TODO: Query the rating to the database.
+}

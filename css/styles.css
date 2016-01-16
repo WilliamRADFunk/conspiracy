@@ -208,6 +208,7 @@ nav a:hover
 #feeds
 {
     display: none;
+    margin-bottom: 50px;
 }
 .feed
 {
@@ -260,8 +261,12 @@ nav a:hover
 #list-view .synopsis
 {
     background-color: #e5e5e5;
+    border-bottom: 1px solid #B2B2B2;
+    border-top: 1px solid #B2B2B2;
     display: block;
-    width: 100%;
+    margin-top: -20px;
+    padding: 20px;
+    width: 100% - 20px;
 }
 #list-view .rating-system
 {
@@ -273,7 +278,6 @@ nav a:hover
 }
 #list-view .rating
 {
-    direction: rtl;
     float: right;
     margin-top: -12px;
     unicode-bidi: bidi-override;
@@ -284,9 +288,55 @@ nav a:hover
     font-size: 35px;
     position: relative;
 }
-.rating > span:hover:before {
+#list-view .rating > span:hover:before
+{
    content: "\2605";
    position: absolute;
+}
+#list-view .rating span.chosen
+{
+   color: #FF0000;
+   content: "\2605";
+}
+#choose-side
+{
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #B2B2B2;
+    display: block;
+    padding: 20px 0px;
+    width: 100%
+}
+#choose-side .side
+{
+    display: inline;
+    margin-left: 25%;
+}
+#comments
+{
+    background-color: #e5e5e5;
+    margin-bottom: 50px;
+    width: 100%;
+}
+#comments h4
+{
+    margin-bottom: 10px;
+}
+#comments .comment
+{
+    margin-top: 20px;
+    padding: 20px 0px 0px 20px;
+}
+.conspirator
+{
+    background-color: #FFFFFF;
+    color: #000000;
+    height: 75px;
+}
+.nay-sayer
+{
+    background-color: #000000;
+    color: #FFFFFF;
+    height: 75px;
 }
 #profile
 {

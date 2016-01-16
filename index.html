@@ -75,11 +75,19 @@
 					<button class="share" onclick="share()">SHARE</button>
 					<div class="rating-system">
 						<p class="details">Rate this evidence: </p>
-						<div class="rating"><span>☆</span><span>☆</span><span>☆</span></div>
+						<div class="rating"><span id="star-1" onclick="rate('1')">☆</span><span id="star-2" onclick="rate('2')">☆</span><span id="star-3" onclick="rate('3')">☆</span></div>
 					</div>
 				</div>
 			</div>
 			<div class="synopsis">There is truth to Plato's legendary city, submerged beneath the ocean. It is obvious for anyone with eyes to see. The evidence posted clearly shows artifacts of an ancient city underwater. Even those statues had to be made by advanced tools. I dare anyone to refute this.</div>
+			<div id="choose-side">
+				<div class="side"><input type="radio" name="conspire" value="yes"/> Conspirator</div>
+				<div class="side"><input type="radio" name="conspire" value="no"/> Unbeliever</div>
+			</div>
+			<div id="comments">
+				<div class="comment nay-sayer"><h4>Jorge Rodriguez:</h4><span>This article is clearly garbage. I can see the blurred pizels where the image was Photoshopped.</span></div>
+				<div class="comment conspirator"><h4>Evan Glazer:</h4><span>You can't refute this picture. No blurred lines here.</span></div>
+			</div>
 		</div>
 		<div id="profile">
 			User Profile
