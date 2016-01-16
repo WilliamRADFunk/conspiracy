@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     if (username.isFocused())
                         username.setText("");
+
                 }
             });
             password.setOnClickListener(new View.OnClickListener() {

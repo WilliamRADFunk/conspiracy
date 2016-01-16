@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:padding="15dp"
+    android:padding="10dp"
     android:background="@color/colorPrimaryDark"
     android:id="@+id/feedsLayout">
 
@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Title of Conspiracy"
+        android:padding="10dp"
         android:id="@+id/feedsTitle"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/authorText"
@@ -27,6 +28,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Author:"
+        android:paddingLeft="10dp"
         android:id="@+id/authorText"
         android:layout_below="@+id/feedsTitle"
         android:layout_toRightOf="@+id/imageView"
@@ -37,6 +39,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Conspirators:"
+        android:paddingLeft="10dp"
         android:id="@+id/conspiratorText"
         android:layout_below="@+id/authorText"
         android:layout_toRightOf="@+id/imageView"
@@ -45,6 +48,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="50"
         android:id="@+id/conspiratorNumber"
@@ -57,6 +61,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Comments:"
+        android:paddingLeft="10dp"
         android:id="@+id/commentsText"
         android:layout_alignTop="@+id/conspiratorNumber"
         android:layout_toRightOf="@+id/conspiratorNumber"
@@ -68,6 +73,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="100"
+        android:paddingLeft="10dp"
         android:id="@+id/textView6"
         android:layout_below="@+id/authorText"
         android:layout_toRightOf="@+id/feedsTitle"
@@ -78,9 +84,9 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Evan Glazer"
+        android:paddingLeft="10dp"
         android:id="@+id/authorName"
         android:layout_above="@+id/conspiratorText"
         android:layout_toRightOf="@+id/authorText"
-        android:layout_toEndOf="@+id/authorText"
-        android:paddingStart="5dp" />
+        android:layout_toEndOf="@+id/authorText" />
 </RelativeLayout>

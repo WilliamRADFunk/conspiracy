@@ -8,9 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.evanglazer.thecabaleffect.models.profile;
 import com.parse.ParseException;
 import com.parse.ParseObject;
-import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 /**
@@ -39,14 +39,14 @@ public class FeedPostActivity extends AppCompatActivity{
 
         synopsisDescription = (EditText) findViewById(R.id.synopsisDescription);
         post = (Button) findViewById(R.id.postFeed);
-
+        final profile prof = new profile();
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ParseObject obj = ParseObject.create("Conspiracies");
                 obj.put("description", synopsisDescription.getText().toString());
                 obj.put("title", titlePost.getText().toString());
-                obj.put("username", ParseUser.getCurrentUser().toString());
+                obj.put("username", prof.getUsername().toString());
                 obj.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {

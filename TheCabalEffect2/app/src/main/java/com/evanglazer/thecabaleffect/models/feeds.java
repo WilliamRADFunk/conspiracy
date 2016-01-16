@@ -13,8 +13,16 @@ public class feeds extends ParseObject {
     private String author;
     private int conspiratorCount;
     private int  commentCount;
+    private String username;
 
-
+    public String getUsername()
+    {
+        return username;
+    }
+    public void setUsername(String user)
+    {
+        this.username = user;
+    }
 
     public String getTitle()
     {

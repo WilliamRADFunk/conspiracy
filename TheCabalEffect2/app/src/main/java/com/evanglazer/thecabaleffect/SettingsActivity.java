@@ -71,7 +71,7 @@ public class SettingsActivity extends AppCompatActivity {
         aboutus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+               setContentView(R.layout.about_layout);
             }
         });
 

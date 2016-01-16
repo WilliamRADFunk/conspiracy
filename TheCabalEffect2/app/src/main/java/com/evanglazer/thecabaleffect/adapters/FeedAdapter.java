@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.evanglazer.thecabaleffect.FeedDetailActivity;
 import com.evanglazer.thecabaleffect.R;
 import com.evanglazer.thecabaleffect.models.feeds;
+import com.evanglazer.thecabaleffect.models.profile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +73,7 @@ public class FeedAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) view.getTag();
         }
+        profile prof = new profile();
         // Set the results into TextViews
         holder.feedTitle.setText("" + feedsList.get(position).getTitle());
         holder.feedAuthor.setText("" +feedsList.get(position).getAuthor());
