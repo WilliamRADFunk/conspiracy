@@ -24,9 +24,12 @@ nav
     background-color: #e0e21b;
     border-top: 4px solid #B2B2B2;
     bottom: 0px;
+    display: none;
     height: 50px;
     left: 0px;
-    position: absolute;
+    margin-bottom: 0px;
+    position: fixed;
+    right: 0px;
     width: 100%;
 }
 nav div
@@ -161,10 +164,17 @@ nav a:hover
 }
 .feed
 {
-    padding: 20px;
+    background-color: #e5e5e5;
+    cursor: pointer;
+    display: block;
+    height: 200px;
+    margin: 20px auto;
+    padding: 20px 0px 20px 20px;
+    width: 98%;
 }
 .feed-content
 {
+    background-color: #e5e5e5;
     padding: 50px 0px 0px 40px;
 }
 .author
