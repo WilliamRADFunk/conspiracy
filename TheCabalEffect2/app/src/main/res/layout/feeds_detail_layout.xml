@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:background="@color/colorPrimaryDark"
+    android:id="@+id/feedsDetail"
+    android:layout_height="wrap_content">
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="com.evanglazer.thecabaleffect.fragments.NavBarFragment"
+        android:id="@+id/fragment2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="446dp"
+        tools:layout="@layout/navbar_fragment" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/imageView2"
+        android:src="@drawable/placeholder"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Title of Feed"
+        android:id="@+id/detailTitle"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2"
+        android:layout_marginTop="27dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Author:"
+        android:id="@+id/authordetail"
+        android:layout_below="@+id/detailTitle"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Evan Glazer"
+        android:id="@+id/detailAuthorText"
+        android:paddingLeft="5dp"
+        android:layout_below="@+id/detailTitle"
+        android:layout_toRightOf="@+id/authordetail"
+        android:layout_toEndOf="@+id/authordetail" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share"
+        android:id="@+id/button4"
+        android:layout_below="@+id/detailAuthorText"
+        android:layout_alignRight="@+id/detailAuthorText"
+        android:layout_alignEnd="@+id/detailAuthorText"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:numStars="3"
+        android:layout_below="@+id/detailRating"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Rate the evidence:"
+        android:id="@+id/detailRating"
+        android:layout_below="@+id/button4"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cabal Effect"
+        android:id="@+id/radioButton"
+        android:layout_below="@+id/imageView2"
+        android:layout_toLeftOf="@+id/ratingBar"
+        android:layout_toStartOf="@+id/ratingBar"
+        android:layout_marginRight="30dp"
+        android:layout_marginEnd="30dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Not a Cabal Effect"
+        android:id="@+id/radioButton2"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignRight="@+id/detailTitle"
+        android:layout_alignEnd="@+id/detailTitle" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="220dp"
+        android:id="@+id/listView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/radioButton" />
+
+</RelativeLayout>

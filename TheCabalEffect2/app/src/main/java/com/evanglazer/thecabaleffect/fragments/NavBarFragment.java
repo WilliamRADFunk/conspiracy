@@ -20,4 +20,7 @@ public class NavBarFragment extends Fragment {
         View view = inflater.inflate(R.layout.navbar_fragment, container, false);
         return view;
     }
+
+    // if user clicks post in feeds detail view then add comment
+    // else post will make a post
 }
