@@ -1,13 +1,41 @@
+var parse;
+function init()
+{
+	Parse.initialize("6tAJZkpgW9kdlJhQmv1BF5TMq8weUwEaNTYE1WKp", "42UHDmrJLF6ZQrt9I016j6WmjKtEY74uT2DaRXWZ");
+}
 function login()
 {
-	var username = document.getElementById("input_username").value;
-	var password = document.getElementById("input_pwd").value;
-	if(username !== "" && password !== "")
+	var name = document.getElementById("input_username").value;
+	var pwd = document.getElementById("input_pwd").value;
+
+	Parse.User.logIn(name, pwd,
+	{
+		success: function(results)
+		{
+			console.log(results);
+			loginCall(true);
+		},
+		error: function(error)
+		{
+			console.log(error);
+			loginCall(false);
+		}
+	});
+}
+function loginCall(victory)
+{
+	if(victory)
 	{
 		document.getElementById("login").style.display = "none";
 		document.getElementById("logout").style.display = "block";
 		document.getElementById("feeds").style.display = "block";
 		document.getElementsByTagName("nav")[0].style.display = "block";
+	}
+	else
+	{
+		document.getElementById("input_username").value = "";
+		document.getElementById("input_pwd").value = "";
+		alert("That username or password is not in our records.");
 	}
 }
 function logout()
@@ -24,16 +52,44 @@ function logout()
 }
 function register()
 {
-	console.log("Registering");
-
 	document.getElementById("login").style.display = "none";
 	document.getElementById("register").style.display = "block";
 }
 function submitRegistration()
 {
-	document.getElementById("login").style.display = "none";
-	document.getElementById("feeds").style.display = "block";
-	document.getElementsByTagName("nav")[0].style.display = "block";
+	var name = document.getElementById("input_reg-username").value;
+	var pwd = document.getElementById("input_reg-pwd").value;
+	var email = document.getElementById("input_reg-email").value;
+
+	var user = new Parse.User();
+	user.set("username", name);
+	user.set("password", pwd);
+	user.set("email", email);
+
+	user.signUp(null,
+	{
+		success: function(user)
+		{
+			registrationCall(true);
+		},
+		error: function(user, error)
+		{
+			registrationCall(false);
+		}
+	});
+}
+function registrationCall(victory)
+{
+	if(victory)
+	{
+		document.getElementById("register").style.display = "none";
+		document.getElementById("feeds").style.display = "block";
+		document.getElementsByTagName("nav")[0].style.display = "block";
+	}
+	else
+	{
+		alert("You entered invalid data, or left a field empty.");
+	}
 }
 function seeConspiracy(consp)
 {
