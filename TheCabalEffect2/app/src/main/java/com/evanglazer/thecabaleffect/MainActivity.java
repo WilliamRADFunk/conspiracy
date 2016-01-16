@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        login = (Button) findViewById(R.id.login);
+        login = (Button) findViewById(R.id.postFeed);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

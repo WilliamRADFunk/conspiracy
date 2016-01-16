@@ -3,5 +3,6 @@
     <string name="app_login_name" translatable="false">The Cabal Effect Login</string>
     <string name="app_login_register" translatable="false">The Cabal Effect Register</string>
     <string name="feeds">The Cabal Effect Feed</string>
+    <string name="postToFeed">Post to Feed</string>
 
 </resources>

@@ -16,6 +16,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".FeedsActivity"></activity>
+        <activity android:name=".FeedDetailActivity"></activity>
+        <activity android:name=".FeedPostActivity"></activity>
+        <activity android:name=".SettingsActivity"></activity>
     </application>
 
 
