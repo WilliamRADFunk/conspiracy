@@ -89,13 +89,19 @@
 				<div class="comment conspirator"><h4>Evan Glazer:</h4><span>You can't refute this picture. No blurred lines here.</span></div>
 			</div>
 		</div>
-		<div id="profile">
-			User Profile
+		<div id="post">
+			<div class="post-info">Title <input id="input_title" type="text"></div>
+			<div class="post-info">Proof <input id="input_proof" type="file"> (Image Format)</div>
+			<div class="post-info">Synopsis <input id="input_synopsis" type="text"></div>
+			<div id="post-button-area"><button id="btn_post">POST</button></div>
+		</div>
+		<div id="settings">
+			Settings
 		</div>
 	</div>
 	<nav>
-		<div class="nav-left"><a href="#">Conspire</a></div>
-		<div class="nav-left"><a href="#">Home</a></div>
+		<div class="nav-left"><a href="#" onclick="makePost()">Conspire</a></div>
+		<div class="nav-left"><a href="#" onclick="goHome()">Home</a></div>
 		<div><a href="#">Settings</a></div>
 	</nav>
 </div>

@@ -18,7 +18,8 @@ function logout()
 	document.getElementById("logout").style.display = "none";
 	document.getElementById("feeds").style.display = "none";
 	document.getElementById("list-view").style.display = "none";
-	document.getElementById("profile").style.display = "none";
+	document.getElementById("settings").style.display = "none";
+	document.getElementById("post").style.display = "none";
 	document.getElementsByTagName("nav")[0].style.display = "none";
 }
 function register()
@@ -48,9 +49,9 @@ function share()
 }
 function rate(id)
 {
-	document.getElementById("star-1").className = "";
-	document.getElementById("star-2").className = "";
-	document.getElementById("star-3").className = "";
+	document.getElementById("star-1").removeAttribute("class");
+	document.getElementById("star-2").removeAttribute("class");
+	document.getElementById("star-3").removeAttribute("class");
 
 	if(id === "1")
 	{
@@ -68,4 +69,22 @@ function rate(id)
 		document.getElementById("star-" + id).className = "chosen";
 	}
 	// TODO: Query the rating to the database.
+}
+function goHome()
+{
+	document.getElementById("login").style.display = "none";
+	document.getElementById("logout").style.display = "block";
+	document.getElementById("feeds").style.display = "block";
+	document.getElementById("list-view").style.display = "none";
+	document.getElementById("settings").style.display = "none";
+	document.getElementById("post").style.display = "none";
+}
+function makePost()
+{
+	document.getElementById("login").style.display = "none";
+	document.getElementById("logout").style.display = "block";
+	document.getElementById("feeds").style.display = "none";
+	document.getElementById("list-view").style.display = "none";
+	document.getElementById("settings").style.display = "none";
+	document.getElementById("post").style.display = "block";
 }

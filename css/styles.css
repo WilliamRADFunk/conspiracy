@@ -296,7 +296,6 @@ nav a:hover
 #list-view .rating span.chosen
 {
    color: #FF0000;
-   content: "\2605";
 }
 #choose-side
 {
@@ -338,7 +337,14 @@ nav a:hover
     color: #FFFFFF;
     height: 75px;
 }
-#profile
+#settings
 {
     display: none;
+}
+#post
+{
+    display: none;
+    height: 300px;
+    margin: 150px auto;
+    width: 50%;
 }
