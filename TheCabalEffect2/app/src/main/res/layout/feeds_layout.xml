@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:padding="10dp"
+    android:padding="15dp"
     android:background="@color/colorPrimaryDark"
     android:id="@+id/feedsLayout">
 
@@ -19,8 +19,8 @@
         android:text="Title of Conspiracy"
         android:id="@+id/feedsTitle"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView" />
+        android:layout_alignLeft="@+id/authorText"
+        android:layout_alignStart="@+id/authorText" />
 
     <TextView
         android:layout_width="wrap_content"

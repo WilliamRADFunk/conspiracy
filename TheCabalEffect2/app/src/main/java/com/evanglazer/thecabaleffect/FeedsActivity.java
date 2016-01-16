@@ -1,6 +1,7 @@
 package com.evanglazer.thecabaleffect;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.widget.ListView;
 
 import com.evanglazer.thecabaleffect.adapters.FeedAdapter;
+import com.evanglazer.thecabaleffect.fragments.NavBarFragment;
 import com.evanglazer.thecabaleffect.models.feeds;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -27,12 +29,13 @@ public class FeedsActivity extends Activity {
     ProgressDialog mProgressDialog;
     FeedAdapter adapter;
     private List<feeds> feedsList = null;
-
+    FragmentManager fm = getFragmentManager();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Get the view from listview_main.xml
         setContentView(R.layout.feeds_activity);
+        fm.beginTransaction().replace(R.id.feeds, new NavBarFragment());
         // Execute RemoteDataTask AsyncTask
         new RemoteDataTask().execute();
     }
@@ -63,12 +66,12 @@ public class FeedsActivity extends Activity {
                         "Conspiracies");
 
                 ob = query.find();
-                for (ParseObject country : ob) {
+                for (ParseObject con : ob) {
                     feeds map = new feeds();
-                    map.setTitle((country.getString("title")));
-                    map.setAuthor(country.getString("author"));
-                    map.setConspiratorCount(country.getInt("conspirator_count"));
-                    map.setCommentCount(country.getInt("CommentCount"));
+                    map.setTitle((con.getString("title")));
+                    map.setAuthor(con.getString("username"));
+                    map.setConspiratorCount(con.getInt("conspirator_count"));
+                    map.setCommentCount(con.getInt("commentCount"));
                     feedsList.add(map);
                 }
             } catch (ParseException e) {

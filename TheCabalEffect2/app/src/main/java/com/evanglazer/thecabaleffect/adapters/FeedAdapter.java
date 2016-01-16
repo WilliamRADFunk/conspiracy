@@ -60,7 +60,7 @@ public class FeedAdapter extends BaseAdapter {
         if (view == null) {
             holder = new ViewHolder();
             view = inflater.inflate(R.layout.feeds_layout, null);
-            // Locate the TextViews in listview_item.xml
+
             holder.feedTitle = (TextView) view.findViewById(R.id.feedsTitle);
             holder.feedAuthor = (TextView) view.findViewById(R.id.authorName);
             holder.feedCount = (TextView) view.findViewById(R.id.conspiratorNumber);
@@ -78,7 +78,6 @@ public class FeedAdapter extends BaseAdapter {
 
         // Listen for ListView Item Click
         view.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View arg0) {
 

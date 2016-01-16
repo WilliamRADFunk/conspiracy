@@ -25,13 +25,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
-
         setTitle(getString(R.string.app_login_name));
         // check if user has current info
-        if (ParseUser.getCurrentUser() != null) {
-            startActivity(new Intent(this, FeedsActivity.class));
-        } else {
-
 
             username = (EditText) findViewById(R.id.username);
             password = (EditText) findViewById(R.id.password);
@@ -86,4 +81,4 @@ public class MainActivity extends AppCompatActivity {
         };
 
 
-}}
+}
