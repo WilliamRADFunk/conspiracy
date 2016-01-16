@@ -13,9 +13,16 @@ h1
     line-height: 50px;
     margin-left: 20px;
 }
+h3
+{
+    color: #00444c;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
 nav
 {
     background-color: #e0e21b;
+    border-top: 4px solid #B2B2B2;
     bottom: 0px;
     height: 50px;
     left: 0px;
@@ -52,6 +59,7 @@ nav a:hover
 #title
 {
     background-color: #e0e21b;
+    border-bottom: 4px solid #B2B2B2;
     height: 50px;
     margin: 0px;
     width: 100%;
@@ -150,6 +158,34 @@ nav a:hover
 #feeds
 {
     display: none;
+}
+.feed
+{
+    padding: 20px;
+}
+.feed-content
+{
+    padding: 50px 0px 0px 40px;
+}
+.author
+{
+    color: #00444c;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.counts
+{
+    color: #00444c;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+#feeds .img_main-evidence
+{
+    float: left;
+}
+#feeds .feed-content
+{
+    float: left;
 }
 #list-view
 {

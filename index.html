@@ -28,13 +28,20 @@
 	</div>
 	<div id="main-content">
 		<div id="login">
-			<input type="text" placeholder="Enter your username"/>
-			<input type="password" placeholder="Enter your password"/>
-			<button id="btn_register">REGISTER</button>
-			<button id="btn_login">LOGIN</button>
+			<input id="input_username" type="text" placeholder="Enter your username"/>
+			<input id="input_pwd" type="password" placeholder="Enter your password"/>
+			<button id="btn_register" onclick="register()">REGISTER</button>
+			<button id="btn_login" onclick="login()">LOGIN</button>
 		</div>
 		<div id="feeds">
-			Feeds
+			<div class="feed">
+				<div class="img_main-evidence"><img src="images/placeholder.jpg" height="200px" width="200px"></div>
+				<div class="feed-content">
+					<h3>Title of Conspiracy</h3>
+					<p class="author">Author: <span>William Funk</span></p>
+					<p class="counts">Conspirators: <span>50</span> Comments: <span>100</span></p>
+				</div>
+			</div>
 		</div>
 		<div id="list-view">
 			List-view
