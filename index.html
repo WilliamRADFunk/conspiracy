@@ -90,10 +90,11 @@
 			</div>
 		</div>
 		<div id="post">
-			<div class="post-info">Title <input id="input_title" type="text"></div>
-			<div class="post-info">Proof <input id="input_proof" type="file"> (Image Format)</div>
-			<div class="post-info">Synopsis <input id="input_synopsis" type="text"></div>
-			<div id="post-button-area"><button id="btn_post">POST</button></div>
+			<input id="input_title" type="text" placeholder="Title">
+			<textarea id="input_synopsis" type="text" placeholder="Synopsis"></textarea>
+			<label>Proof</label>
+			<input id="btn_proof" type="file" value="SUBMIT PROOF (IMAGE FORMAT)"/>
+			<button id="btn_post" onclick="submitPost()">POST</button>
 		</div>
 		<div id="settings">
 			Settings

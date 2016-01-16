@@ -348,3 +348,46 @@ nav a:hover
     margin: 150px auto;
     width: 50%;
 }
+#post input[type="text"],
+textarea
+{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #000000;
+    box-shadow: none;
+    display: block;
+    margin: 50px auto;
+    width: 100%;
+}
+textarea
+{
+    border: 2px solid #000000;
+}
+#post input[type="file"]
+{
+    border: 2px solid #000000;
+    border-color: 1px solid #000000;
+    border-radius: 2px;
+    cursor: pointer;
+    display: block;
+    height: 25px;
+    margin: 5px auto 20px auto;
+    padding-top: 5px;
+    width: 100%;
+}
+#post label
+{
+    display: block;
+    font-size: 13px;
+    text-align: center;
+}
+#btn_proof
+{
+    width: 100%;
+}
+#btn_post
+{
+    margin-left: 20%;
+    margin-top: 50px;
+    width: 60%;
+}

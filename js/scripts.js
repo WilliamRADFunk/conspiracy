@@ -88,3 +88,13 @@ function makePost()
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("post").style.display = "block";
 }
+function submitPost()
+{
+	console.log("Makin' a pooooost");
+	document.getElementById("login").style.display = "none";
+	document.getElementById("logout").style.display = "block";
+	document.getElementById("feeds").style.display = "block";
+	document.getElementById("list-view").style.display = "none";
+	document.getElementById("settings").style.display = "none";
+	document.getElementById("post").style.display = "none";
+}
