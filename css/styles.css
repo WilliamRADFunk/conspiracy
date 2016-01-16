@@ -50,6 +50,8 @@ button
     background-color: #9ac6c8 !important;
     border-color: 1px solid #000000 !important;
     border-radius: 2px !important;
+    cursor: pointer;
+    height: 30px !important;
 }
 h1
 {
@@ -228,7 +230,7 @@ nav a:hover
     font-size: 20px;
     margin-bottom: 10px;
 }
-.counts
+.details
 {
     color: #00444c;
     font-size: 16px;
@@ -246,9 +248,45 @@ nav a:hover
 {
     display: none;
 }
-.share
+#list-view .feed
 {
-    width: 150px;
+    cursor: default;
+}
+#list-view .share
+{
+    margin-bottom: 20px;
+    width: 250px;
+}
+#list-view .synopsis
+{
+    background-color: #e5e5e5;
+    display: block;
+    width: 100%;
+}
+#list-view .rating-system
+{
+    width: 250px;
+}
+#list-view .rating-system p
+{
+    float: left;
+}
+#list-view .rating
+{
+    direction: rtl;
+    float: right;
+    margin-top: -12px;
+    unicode-bidi: bidi-override;
+}
+#list-view .rating span
+{
+    display: inline-block;
+    font-size: 35px;
+    position: relative;
+}
+.rating > span:hover:before {
+   content: "\2605";
+   position: absolute;
 }
 #profile
 {

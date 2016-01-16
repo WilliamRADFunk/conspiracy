@@ -42,3 +42,7 @@ function seeConspiracy(consp)
 	document.getElementById("feeds").style.display = "none";
 	document.getElementById("list-view").style.display = "block";
 }
+function share()
+{
+	console.log("Sharing is caring");
+}
