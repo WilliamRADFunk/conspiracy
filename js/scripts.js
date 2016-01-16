@@ -16,4 +16,8 @@ function register()
 function seeConspiracy(consp)
 {
 	console.log("Checking out this conspiracy: " + consp.id);
+
+	document.getElementById("login").style.display = "none";
+	document.getElementById("feeds").style.display = "none";
+	document.getElementById("list-view").style.display = "block";
 }
