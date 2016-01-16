@@ -97,13 +97,20 @@
 			<button id="btn_post" onclick="submitPost()">POST</button>
 		</div>
 		<div id="settings">
-			Settings
+			<input id="input_name" type="text" placeholder="Bob Griffin"/>
+			<input class="input_email" type="email" placeholder="bgriffin@gmail.com"/>
+			Avatar: <img id="img_avatar"src="images/placeholder.jpg" height="50px" width="50px"/>
+			<input type="file" name="Testing"/>
+			<button id="btn_puzzle">Construct Puzzle Fragment</button>
+			<button id="btn_bug">REPORT A BUG</button>
+			<button id="btn_feedback">FEEDBACK</button>
+			<button id="btn_about">ABOUT US</button>
 		</div>
 	</div>
 	<nav>
 		<div class="nav-left"><a href="#" onclick="makePost()">Conspire</a></div>
 		<div class="nav-left"><a href="#" onclick="goHome()">Home</a></div>
-		<div><a href="#">Settings</a></div>
+		<div><a href="#" onclick="goSettings()">Settings</a></div>
 	</nav>
 </div>
 

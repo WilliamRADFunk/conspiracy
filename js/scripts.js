@@ -98,3 +98,13 @@ function submitPost()
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("post").style.display = "none";
 }
+function goSettings()
+{
+	console.log("Changin' da settings");
+	document.getElementById("login").style.display = "none";
+	document.getElementById("logout").style.display = "block";
+	document.getElementById("feeds").style.display = "none";
+	document.getElementById("list-view").style.display = "none";
+	document.getElementById("settings").style.display = "block";
+	document.getElementById("post").style.display = "none";
+}

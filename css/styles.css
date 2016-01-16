@@ -340,6 +340,20 @@ nav a:hover
 #settings
 {
     display: none;
+    height: 300px;
+    margin: 150px auto;
+    width: 50%;
+}
+#settings input[type="text"],
+#settings input[type="email"]
+{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #000000;
+    box-shadow: none;
+    display: block;
+    margin: 50px auto;
+    width: 100%;
 }
 #post
 {
