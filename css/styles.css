@@ -248,6 +248,7 @@ nav a:hover
 #list-view
 {
     display: none;
+    margin-bottom: 50px;
 }
 #list-view .feed
 {
@@ -337,28 +338,9 @@ nav a:hover
     color: #FFFFFF;
     height: 75px;
 }
-#settings
-{
-    display: none;
-    height: 300px;
-    margin: 150px auto;
-    width: 50%;
-}
-#settings input[type="text"],
-#settings input[type="email"]
-{
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid #000000;
-    box-shadow: none;
-    display: block;
-    margin: 50px auto;
-    width: 100%;
-}
 #post
 {
     display: none;
-    height: 300px;
     margin: 150px auto;
     width: 50%;
 }
@@ -404,4 +386,61 @@ textarea
     margin-left: 20%;
     margin-top: 50px;
     width: 60%;
+}
+#settings
+{
+    display: none;
+    margin: 75px auto 100px auto;
+    width: 50%;
+}
+#settings .avatar
+{
+    padding-left: 10%;
+}
+#settings input[type="text"],
+#settings input[type="password"],
+#settings input[type="email"]
+{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #000000;
+    box-shadow: none;
+    display: block;
+    margin: 30px auto;
+    width: 100%;
+}
+#settings input[type="file"]
+{
+    border: 2px solid #000000;
+    border-color: 1px solid #000000;
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    margin: 5px auto 90px 30px;
+    padding-top: 5px;
+    width: 50%;
+}
+#settings label
+{
+    display: block;
+    font-size: 13px;
+    margin-left: 10px;
+    text-align: left;
+}
+#btn_puzzle
+{
+    display: block;
+    margin-bottom: 50px;
+    width: 100%;
+}
+#settings .buttons
+{
+    width: 100%;
+}
+#settings .buttons button
+{
+    font-size: 10px;
+    margin-left: 2%;
+    width: 22%;
 }

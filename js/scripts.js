@@ -100,11 +100,25 @@ function submitPost()
 }
 function goSettings()
 {
-	console.log("Changin' da settings");
 	document.getElementById("login").style.display = "none";
 	document.getElementById("logout").style.display = "block";
 	document.getElementById("feeds").style.display = "none";
 	document.getElementById("list-view").style.display = "none";
 	document.getElementById("settings").style.display = "block";
+	document.getElementById("post").style.display = "none";
+}
+function submitSettingsChange()
+{
+	console.log("Changin' da settings");
+	var username = document.getElementById("input_name").value;
+	var password = document.getElementById("input_pass").value;
+	var email = document.getElementById("input_email").value;
+	var file = document.getElementById("input_file-avatar").value;
+
+	document.getElementById("login").style.display = "none";
+	document.getElementById("logout").style.display = "block";
+	document.getElementById("feeds").style.display = "block";
+	document.getElementById("list-view").style.display = "none";
+	document.getElementById("settings").style.display = "none";
 	document.getElementById("post").style.display = "none";
 }
