@@ -1,5 +1,6 @@
 body
 {
+    background-color: #c6c6c6;
     color: #000000;
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
@@ -15,6 +16,10 @@ h1
 nav
 {
     background-color: #e0e21b;
+    bottom: 0px;
+    height: 50px;
+    left: 0px;
+    position: absolute;
     width: 100%;
 }
 nav div
@@ -37,7 +42,8 @@ nav a:hover
 }
 .nav-left
 {
-    border-right: 2% solid #000000;
+    border-right: 0px solid #000000;
+    margin-left: 2%;
 }
 #wrapper
 {
@@ -68,13 +74,88 @@ nav a:hover
 }
 #login
 {
-    border: 2px solid #000000;
     display: block;
     height: 300px;
-    margin: 0px auto;
+    margin: 150px auto;
     width: 50%;
 }
+#login input[type="text"],
+#login input[type="password"]
+{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #000000;
+    box-shadow: none;
+    display: block;
+    margin: 50px auto;
+    width: 150px;
+}
+::-webkit-input-placeholder { /* Safari, Chrome and Opera */
+    color: #000000;
+    text-align: center;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #000000;
+    text-align: center;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #000000;
+    text-align: center;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #000000;
+    text-align: center;
+}
+::-ms-input-placeholder { /* Edge */
+    color: #000000;
+    text-align: center;
+}
+:placeholder-shown { /* Standard one last! */
+    color: #000000;
+    text-align: center;
+}
+[placeholder]:focus::-webkit-input-placeholder { /* Safari, Chrome and Opera */
+    color: transparent;
+}
+[placeholder]:focus:-moz-placeholder { /* Firefox 18- */
+    color: transparent;
+}
+[placeholder]:focus::-moz-placeholder { /* Firefox 19+ */
+    color: transparent;
+}
+[placeholder]:focus:-ms-input-placeholder { /* IE 10+ */
+    color: transparent;
+}
+[placeholder]:focus::-ms-input-placeholder { /* Edge */
+    color: transparent;
+}
+#login button
+{
+    background-color: #9ac6c8;
+    border-color: 1px solid #000000;
+    border-radius: 2px;
+    margin-top: 20px;
+    width: 100px;
+}
+#btn_register
+{
+    float: left;
+    margin-left: 27%;
+}
+#btn_login
+{
+    float: right;
+    margin-right: 27%;
+}
 #feeds
+{
+    display: none;
+}
+#list-view
+{
+    display: none;
+}
+#profile
 {
     display: none;
 }
