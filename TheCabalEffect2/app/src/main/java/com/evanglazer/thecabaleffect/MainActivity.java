@@ -23,12 +23,22 @@ public class MainActivity extends AppCompatActivity {
 
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
+        username.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(username.isFocused())
+                    username.setText("");
+            }
+        });
+        password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(password.isFocused())
+                    password.setText("");
+            }
+        });
 
-        if(username.isFocused())
-            username.setText("");
-        if(password.isFocused())
-            password.setText("");
-        
+
         login = (Button) findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,8 +46,6 @@ public class MainActivity extends AppCompatActivity {
                 // check parse db and see
             }
         });
-
-
 
         register = (Button) findViewById(R.id.register);
         register.setOnClickListener(new View.OnClickListener() {

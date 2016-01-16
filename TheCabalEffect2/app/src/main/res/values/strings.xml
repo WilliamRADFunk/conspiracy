@@ -2,6 +2,6 @@
     <string name="app_name" translatable="false">The Cabal Effect</string>
     <string name="app_login_name" translatable="false">The Cabal Effect Login</string>
     <string name="app_login_register" translatable="false">The Cabal Effect Register</string>
-
+    <string name="feeds">The Cabal Effect Feed</string>
 
 </resources>
