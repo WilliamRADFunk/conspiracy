@@ -1,4 +1,5 @@
 var parse;
+var currentUser;
 function init()
 {
 	Parse.initialize("6tAJZkpgW9kdlJhQmv1BF5TMq8weUwEaNTYE1WKp", "42UHDmrJLF6ZQrt9I016j6WmjKtEY74uT2DaRXWZ");
@@ -30,6 +31,7 @@ function loginCall(victory)
 		document.getElementById("logout").style.display = "block";
 		document.getElementById("feeds").style.display = "block";
 		document.getElementsByTagName("nav")[0].style.display = "block";
+		currentUser = Parse.User.current();
 	}
 	else
 	{
@@ -49,6 +51,7 @@ function logout()
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("post").style.display = "none";
 	document.getElementsByTagName("nav")[0].style.display = "none";
+	Parse.User.logOut();
 }
 function register()
 {
@@ -82,8 +85,7 @@ function registrationCall(victory)
 {
 	if(victory)
 	{
-		document.getElementById("register").style.display = "none";
-		document.getElementById("feeds").style.display = "block";
+		document.getElementById("login").style.display = "block";
 		document.getElementsByTagName("nav")[0].style.display = "block";
 	}
 	else
@@ -146,13 +148,66 @@ function makePost()
 }
 function submitPost()
 {
-	console.log("Makin' a pooooost");
-	document.getElementById("login").style.display = "none";
-	document.getElementById("logout").style.display = "block";
-	document.getElementById("feeds").style.display = "block";
-	document.getElementById("list-view").style.display = "none";
-	document.getElementById("settings").style.display = "none";
-	document.getElementById("post").style.display = "none";
+	var title = document.getElementById("input_title").value;
+	var synopsis = document.getElementById("input_synopsis").value;
+	/*var proof = document.getElementById("btn_proof").files[0];
+	if (proof)
+    {
+    	fileReader = new FileReader();
+    	fileReader.readAsDataURL(proof);
+    }
+    else
+    {
+    	alert("File failed to upload!");
+    }*/
+
+	var Post = Parse.Object.extend("Conspiracies");
+	var post = new Post();
+
+	if(currentUser !== null)
+	{
+		post.set("user", currentUser);
+		post.set("title", title);
+		post.set("description", synopsis);
+		//post.set("photo", proof);
+
+		post.save(null,
+		{
+			success: function(post)
+			{
+				submitPostCall(true);
+			},
+			error: function(post, error)
+			{
+				 submitPostCall(false);
+			}
+		});
+	}
+	else
+	{
+		document.getElementById("input_title").value = "";
+		document.getElementById("input_synopsis").value = "";
+		document.getElementById("input_proof").value = "";
+		logout();
+		alert("You are not logged in!");
+	}
+}
+function submitPostCall(victory)
+{
+	if(victory)
+	{
+		document.getElementById("login").style.display = "none";
+		document.getElementById("logout").style.display = "block";
+		document.getElementById("feeds").style.display = "block";
+		document.getElementById("list-view").style.display = "none";
+		document.getElementById("settings").style.display = "none";
+		document.getElementById("post").style.display = "none";
+	}
+	else
+	{
+		alert("You entered one or more fields with invalid data, or failed to fill out an important field.");
+	}
+	
 }
 function goSettings()
 {
