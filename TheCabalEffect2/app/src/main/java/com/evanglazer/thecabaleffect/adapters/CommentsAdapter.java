@@ -58,11 +58,11 @@ public class CommentsAdapter extends BaseAdapter {
         final ViewHolder holder;
         if (view == null) {
             holder = new ViewHolder();
-            view = inflater.inflate(R.layout.comments_layout, null);
+            view = inflater.inflate(R.layout.feed_comments_layout, null);
 
-            holder.commentUsername = (TextView) view.findViewById(R.id.feedsTitle);
-            holder.content = (TextView) view.findViewById(R.id.authorName);
-            holder.postedDate = (TextView) view.findViewById(R.id.conspiratorNumber);
+            holder.commentUsername = (TextView) view.findViewById(R.id.user);
+            holder.content = (TextView) view.findViewById(R.id.content);
+            holder.postedDate = (TextView) view.findViewById(R.id.postDate);
 
             view.setTag(holder);
         } else {
