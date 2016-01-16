@@ -96,7 +96,7 @@ function registrationCall(victory)
 }
 function populateListView(consp)
 {
-	console.log(consp);
+	//console.log(consp);
 	/*var Conspiracies = Parse.Object.extend("Conspiracies");
 	var query = new Parse.Query(Conspiracies);
 
@@ -112,11 +112,11 @@ function populateListView(consp)
 			populateFeedsCall(false);
 		}
 	});
+	*/
 	document.getElementById("login").style.display = "none";
 	document.getElementById("feeds").style.display = "none";
 	document.getElementById("list-view").style.display = "block";
-	populateListView(consp);
-	*/
+	//populateListView(consp);
 }
 function share()
 {
@@ -261,7 +261,7 @@ function populateFeeds()
 {
 	var Conspiracies = Parse.Object.extend("Conspiracies");
 	var query = new Parse.Query(Conspiracies);
-	//query.descending("viewCount");
+	
 	query.find({
 		success: function(results)
 		{
@@ -279,10 +279,6 @@ function populateFeedsCall(victory, results)
 	document.getElementById("feeds").innerHTML = "";
 	if(victory)
 	{	
-		//var objects = results;
-		//var idents = [];
-		//idents = objects.get("objectId");
-		//console.log(idents);
 		for(var i = 0; i < results.length; i++)
 		{
 			var object = results[i];
