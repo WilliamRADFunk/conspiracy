@@ -43,30 +43,7 @@
 			<div><button id="btn_registration" onclick="submitRegistration()">REGISTER</button></div>
 		</div>
 		<div id="feeds">
-			<div id="conspiracy-1" class="feed" onclick="seeConspiracy(this)">
-				<div class="img_main-evidence"><img src="images/placeholder.jpg" height="200px" width="200px"></div>
-				<div class="feed-content">
-					<h3>Truth About Atlantis</h3>
-					<p class="author">Author: <span>William Funk</span></p>
-					<p class="details">Conspirators: <span>50</span> Comments: <span>100</span></p>
-				</div>
-			</div>
-			<div class="feed">
-				<div class="img_main-evidence"><img src="images/placeholder.jpg" height="200px" width="200px"></div>
-				<div class="feed-content">
-					<h3>The Knights Who Say, 'Ni'</h3>
-					<p class="author">Author: <span>Evan Glazer</span></p>
-					<p class="details">Conspirators: <span>74</span> Comments: <span>86</span></p>
-				</div>
-			</div>
-			<div class="feed">
-				<div class="img_main-evidence"><img src="images/placeholder.jpg" height="200px" width="200px"></div>
-				<div class="feed-content">
-					<h3>Rabbit of Caerbannog</h3>
-					<p class="author">Author: <span>Jorge Rodriguez</span></p>
-					<p class="details">Conspirators: <span>23</span> Comments: <span>213</span></p>
-				</div>
-			</div>
+			
 		</div>
 		<div id="list-view">
 			<div class="feed">
@@ -112,8 +89,14 @@
 				<button id="btn_change" onclick="submitSettingsChange()">SUBMIT CHANGES</button>
 				<button id="btn_bug">REPORT A BUG</button>
 				<button id="btn_feedback">FEEDBACK</button>
-				<button id="btn_about">ABOUT US</button>
+				<button id="btn_about" onclick="goAbout()">ABOUT US</button>
 			</div>
+		</div>
+		<div id="about">
+			<h3>The following people worked on this application</h3>
+			<p>William Funk<br/><a href="williamrobertfunk.com" target="_blank">williamrobertfunk.com</a></p>
+			<p>Evan Glazer<br/><a href="evanglazer.com" target="_blank">evanglazer.com</a></p>
+			<p>Jorge Rodriguez<br/><a href="github.com/jitorodriguez" target="_blank">github.com/jitorodriguez</a></p>
 		</div>
 	</div>
 	<nav>

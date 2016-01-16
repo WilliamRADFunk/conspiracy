@@ -13,12 +13,10 @@ function login()
 	{
 		success: function(results)
 		{
-			console.log(results);
 			loginCall(true);
 		},
 		error: function(error)
 		{
-			console.log(error);
 			loginCall(false);
 		}
 	});
@@ -29,7 +27,9 @@ function loginCall(victory)
 	{
 		document.getElementById("login").style.display = "none";
 		document.getElementById("logout").style.display = "block";
+		document.getElementById("about").style.display = "none";
 		document.getElementById("feeds").style.display = "block";
+		populateFeeds();
 		document.getElementsByTagName("nav")[0].style.display = "block";
 		currentUser = Parse.User.current();
 	}
@@ -50,6 +50,7 @@ function logout()
 	document.getElementById("list-view").style.display = "none";
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("post").style.display = "none";
+	document.getElementById("about").style.display = "none";
 	document.getElementsByTagName("nav")[0].style.display = "none";
 	Parse.User.logOut();
 }
@@ -93,13 +94,29 @@ function registrationCall(victory)
 		alert("You entered invalid data, or left a field empty.");
 	}
 }
-function seeConspiracy(consp)
+function populateListView(consp)
 {
-	console.log("Checking out this conspiracy: " + consp.id);
+	console.log(consp);
+	/*var Conspiracies = Parse.Object.extend("Conspiracies");
+	var query = new Parse.Query(Conspiracies);
 
+	//query.descending("viewCount");
+	query.find({
+		success: function(results)
+		{
+			populateFeedsCall(true, results);
+		},
+
+		error: function(error)
+		{
+			populateFeedsCall(false);
+		}
+	});
 	document.getElementById("login").style.display = "none";
 	document.getElementById("feeds").style.display = "none";
 	document.getElementById("list-view").style.display = "block";
+	populateListView(consp);
+	*/
 }
 function share()
 {
@@ -133,9 +150,11 @@ function goHome()
 	document.getElementById("login").style.display = "none";
 	document.getElementById("logout").style.display = "block";
 	document.getElementById("feeds").style.display = "block";
+	populateFeeds();
 	document.getElementById("list-view").style.display = "none";
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("post").style.display = "none";
+	document.getElementById("about").style.display = "none";
 }
 function makePost()
 {
@@ -145,6 +164,7 @@ function makePost()
 	document.getElementById("list-view").style.display = "none";
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("post").style.display = "block";
+	document.getElementById("about").style.display = "none";
 }
 function submitPost()
 {
@@ -199,9 +219,11 @@ function submitPostCall(victory)
 		document.getElementById("login").style.display = "none";
 		document.getElementById("logout").style.display = "block";
 		document.getElementById("feeds").style.display = "block";
+		populateFeeds();
 		document.getElementById("list-view").style.display = "none";
 		document.getElementById("settings").style.display = "none";
 		document.getElementById("post").style.display = "none";
+		document.getElementById("about").style.display = "none";
 	}
 	else
 	{
@@ -217,10 +239,10 @@ function goSettings()
 	document.getElementById("list-view").style.display = "none";
 	document.getElementById("settings").style.display = "block";
 	document.getElementById("post").style.display = "none";
+	document.getElementById("about").style.display = "none";
 }
 function submitSettingsChange()
 {
-	console.log("Changin' da settings");
 	var username = document.getElementById("input_name").value;
 	var password = document.getElementById("input_pass").value;
 	var email = document.getElementById("input_email").value;
@@ -229,7 +251,63 @@ function submitSettingsChange()
 	document.getElementById("login").style.display = "none";
 	document.getElementById("logout").style.display = "block";
 	document.getElementById("feeds").style.display = "block";
+	populateFeeds();
 	document.getElementById("list-view").style.display = "none";
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("post").style.display = "none";
+	document.getElementById("about").style.display = "none";
+}
+function populateFeeds()
+{
+	var Conspiracies = Parse.Object.extend("Conspiracies");
+	var query = new Parse.Query(Conspiracies);
+	//query.descending("viewCount");
+	query.find({
+		success: function(results)
+		{
+			populateFeedsCall(true, results);
+		},
+
+		error: function(error)
+		{
+			populateFeedsCall(false);
+		}
+	});
+}
+function populateFeedsCall(victory, results)
+{
+	document.getElementById("feeds").innerHTML = "";
+	if(victory)
+	{	
+		//var objects = results;
+		//var idents = [];
+		//idents = objects.get("objectId");
+		//console.log(idents);
+		for(var i = 0; i < results.length; i++)
+		{
+			var object = results[i];
+			var ident = object.get("objectId");
+			document.getElementById("feeds").innerHTML += '<div id="' + ident + '"' +
+			'class="feed" onclick="populateListView(this)"><div class="img_main-evidence">' +
+			'<img src="images/placeholder.jpg" height="200px" width="200px"></div>' +
+			'<div class="feed-content"><h3>' + object.get("title") + '</h3>' +
+			'<p class="author">Author: <span>' + object.get("username") + '</span></p>' +
+			'<p class="details">Conspirators: <span>  ' + object.get("conspirator_count") + '  </span>' +
+			'Comments: <span>  ' + object.get("commentCount") + '  </span></p></div></div>';
+		}
+	}
+	else
+	{
+		alert("There was a problem retrieving conspiracies from the database. It seems the suits are trying to silence us.");
+	}
+}
+function goAbout()
+{
+	document.getElementById("login").style.display = "none";
+	document.getElementById("logout").style.display = "block";
+	document.getElementById("feeds").style.display = "none";
+	document.getElementById("list-view").style.display = "none";
+	document.getElementById("settings").style.display = "none";
+	document.getElementById("post").style.display = "none";
+	document.getElementById("about").style.display = "block";
 }

@@ -237,6 +237,11 @@ nav a:hover
     font-size: 16px;
     margin-bottom: 10px;
 }
+.details span
+{
+    margin-right: 10px;
+    padding-left: 5px;
+}
 .img_main-evidence
 {
     float: left;
@@ -443,4 +448,14 @@ textarea
     font-size: 10px;
     margin-left: 2%;
     width: 22%;
+}
+#about
+{
+    display: none;
+    text-align: center;
+}
+#about h3,
+#about p
+{
+    margin: 30px auto;
 }
