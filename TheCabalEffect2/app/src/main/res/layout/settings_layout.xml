@@ -4,6 +4,7 @@
     android:layout_width="wrap_content"
     android:background="@color/colorPrimaryDark"
     android:id="@+id/feedsDetail"
+    android:padding="10dp"
     android:layout_height="wrap_content">
 
     <fragment
@@ -42,7 +43,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Evan Glazer"
-        android:id="@+id/textView3"
+        android:id="@+id/settingsName"
         android:layout_alignTop="@+id/textView2"
         android:layout_toRightOf="@+id/textView2"
         android:layout_toEndOf="@+id/textView2" />
@@ -62,7 +63,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="evan.glazer@knights.ucf.edu"
-        android:id="@+id/textView5"
+        android:id="@+id/settingsEmail"
         android:layout_alignTop="@+id/textView4"
         android:layout_toRightOf="@+id/textView4"
         android:layout_toEndOf="@+id/textView4"
@@ -72,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Report a Bug"
-        android:id="@+id/button5"
+        android:id="@+id/reportBug"
         android:layout_below="@+id/imageView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -84,30 +85,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Feedback"
-        android:id="@+id/button6"
-        android:layout_below="@+id/button5"
+        android:id="@+id/feedback"
+        android:layout_below="@+id/reportBug"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/button5"
-        android:layout_alignEnd="@+id/button5" />
+        android:layout_alignRight="@+id/reportBug"
+        android:layout_alignEnd="@+id/reportBug" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="About us"
-        android:id="@+id/button7"
-        android:layout_below="@+id/button6"
+        android:id="@+id/about"
+        android:layout_below="@+id/feedback"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/button6"
-        android:layout_alignEnd="@+id/button6" />
+        android:layout_alignRight="@+id/feedback"
+        android:layout_alignEnd="@+id/feedback" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Logout"
-        android:id="@+id/button8"
-        android:layout_alignBottom="@+id/button7"
+        android:id="@+id/logout"
+        android:layout_alignBottom="@+id/about"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -115,13 +116,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Go to Puzzling Feature"
-        android:id="@+id/button9"
+        android:id="@+id/puzzling"
         android:layout_below="@+id/imageView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="47dp"
-        android:layout_alignRight="@+id/textView5"
-        android:layout_alignEnd="@+id/textView5" />
+        android:layout_alignRight="@+id/settingsEmail"
+        android:layout_alignEnd="@+id/settingsEmail" />
 
 
 </RelativeLayout>
