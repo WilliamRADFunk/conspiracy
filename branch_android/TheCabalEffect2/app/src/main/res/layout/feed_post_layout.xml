@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/postTitle"
+        android:text="Title"
+        android:textAlignment="center"
+        android:imeOptions="actionNext"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/postToFeed"
+        android:id="@+id/postFeed"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="71dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload Proof"
+        android:id="@+id/upload"
+        android:layout_below="@+id/postTitle"
+        android:layout_marginTop="37dp"
+        android:layout_alignRight="@+id/postTitle"
+        android:layout_alignEnd="@+id/postTitle"
+        android:layout_alignLeft="@+id/postTitle"
+        android:layout_alignStart="@+id/postTitle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Synoposis"
+        android:id="@+id/synopsisText"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/upload"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/synopsisDescription"
+        android:imeOptions="actionDone"
+        android:layout_alignLeft="@+id/upload"
+        android:layout_alignStart="@+id/upload"
+        android:layout_above="@+id/postFeed"
+        android:layout_below="@+id/synopsisText"
+        android:textColor="#000000"></EditText>
+
+</RelativeLayout>
