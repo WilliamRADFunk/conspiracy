@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name" translatable="false">The Cabal Effect</string>
+    <string name="app_login_name" translatable="false">The Cabal Effect Login</string>
+    <string name="app_login_register" translatable="false">The Cabal Effect Register</string>
+    <string name="feeds">The Cabal Effect Feed</string>
+    <string name="postToFeed">Post to Feed</string>
+    <string name="parse_app_id">6tAJZkpgW9kdlJhQmv1BF5TMq8weUwEaNTYE1WKp</string>
+    <string name="parse_client_key">wEGqSDuBomWCkeJUYxiljvNtwA8MoEJt0gbBYXqH</string>
+
+</resources>
