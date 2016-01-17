@@ -1,0 +1,461 @@
+::-webkit-input-placeholder { /* Safari, Chrome and Opera */
+    color: #000000;
+    text-align: center;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #000000;
+    text-align: center;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #000000;
+    text-align: center;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #000000;
+    text-align: center;
+}
+::-ms-input-placeholder { /* Edge */
+    color: #000000;
+    text-align: center;
+}
+:placeholder-shown { /* Standard one last! */
+    color: #000000;
+    text-align: center;
+}
+[placeholder]:focus::-webkit-input-placeholder { /* Safari, Chrome and Opera */
+    color: transparent;
+}
+[placeholder]:focus:-moz-placeholder { /* Firefox 18- */
+    color: transparent;
+}
+[placeholder]:focus::-moz-placeholder { /* Firefox 19+ */
+    color: transparent;
+}
+[placeholder]:focus:-ms-input-placeholder { /* IE 10+ */
+    color: transparent;
+}
+[placeholder]:focus::-ms-input-placeholder { /* Edge */
+    color: transparent;
+}
+body
+{
+    background-color: #c6c6c6;
+    color: #000000;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    padding: 0px;
+}
+button
+{
+    background-color: #9ac6c8 !important;
+    border-color: 1px solid #000000 !important;
+    border-radius: 2px !important;
+    cursor: pointer;
+    height: 30px !important;
+}
+h1
+{
+    display: inline;
+    font-size: 30px;
+    line-height: 50px;
+    margin-left: 20px;
+}
+h3
+{
+    color: #00444c;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+input
+{ 
+    text-align: center; 
+}
+nav
+{
+    background-color: #e0e21b;
+    border-top: 4px solid #B2B2B2;
+    bottom: 0px;
+    display: none;
+    height: 50px;
+    left: 0px;
+    margin-bottom: 0px;
+    position: fixed;
+    right: 0px;
+    width: 100%;
+}
+nav div
+{
+    background-color: #e0e21b;
+    float: left;
+    height: 50px;
+    text-align: center;
+    width: 32%;
+}
+nav a
+{
+    color: #000000;
+    line-height: 50px;
+    text-decoration: none;
+}
+nav a:hover
+{
+    text-decoration: underline;
+}
+.nav-left
+{
+    border-right: 0px solid #000000;
+    margin-left: 2%;
+}
+#wrapper
+{
+    background-color: #c6c6c6;
+}
+#title
+{
+    background-color: #e0e21b;
+    border-bottom: 4px solid #B2B2B2;
+    height: 50px;
+    margin: 0px;
+    width: 100%;
+}
+#title div
+{
+    float: right;
+    text-align: center;
+    width: 75px;
+}
+#title a
+{
+    color: #000000;
+    line-height: 50px;
+    text-decoration: none;
+}
+#title a:hover
+{
+    text-decoration: underline;
+}
+#login
+{
+    display: block;
+    height: 300px;
+    margin: 150px auto;
+    width: 50%;
+}
+#logout
+{
+    display: none;
+}
+#login input[type="text"],
+#login input[type="password"]
+{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #000000;
+    box-shadow: none;
+    display: block;
+    margin: 50px auto;
+    width: 46%;
+}
+#login button
+{
+    margin-top: 20px;
+    width: 100px;
+}
+#btn_register
+{
+    float: left;
+    margin-left: 27%;
+}
+#btn_login
+{
+    float: right;
+    margin-right: 27%;
+}
+#register
+{
+    display: none;
+    height: 300px;
+    margin: 150px auto;
+    width: 50%;
+}
+#register div
+{
+    width: 100%;
+}
+#register input[type="text"],
+#register input[type="password"],
+#register input[type="email"]
+{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #000000;
+    box-shadow: none;
+    display: block;
+    margin: 50px auto;
+    width: 100%;
+}
+#register button
+{
+    margin-top: 20px;
+    width: 100%;
+}
+#btn_registration
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#feeds
+{
+    display: none;
+    margin-bottom: 50px;
+}
+.feed
+{
+    background-color: #e5e5e5;
+    cursor: pointer;
+    display: block;
+    height: 200px;
+    margin: 20px auto;
+    padding: 20px 0px 20px 20px;
+    width: 98%;
+}
+.feed-content
+{
+    background-color: #e5e5e5;
+    padding: 50px 0px 0px 40px;
+}
+.author
+{
+    color: #00444c;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.details
+{
+    color: #00444c;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.details span
+{
+    margin-right: 10px;
+    padding-left: 5px;
+}
+.img_main-evidence
+{
+    float: left;
+}
+.feed-content
+{
+    float: left;
+}
+#list-view
+{
+    display: none;
+    margin-bottom: 50px;
+}
+#list-view .feed
+{
+    cursor: default;
+}
+#list-view .share
+{
+    margin-bottom: 20px;
+    width: 250px;
+}
+#list-view .synopsis
+{
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #B2B2B2;
+    border-top: 1px solid #B2B2B2;
+    display: block;
+    margin-top: -20px;
+    padding: 20px;
+    width: 100% - 20px;
+}
+#list-view .rating-system
+{
+    width: 250px;
+}
+#list-view .rating-system p
+{
+    float: left;
+}
+#list-view .rating
+{
+    float: right;
+    margin-top: -12px;
+    unicode-bidi: bidi-override;
+}
+#list-view .rating span
+{
+    display: inline-block;
+    font-size: 35px;
+    position: relative;
+}
+#list-view .rating > span:hover:before
+{
+   content: "\2605";
+   position: absolute;
+}
+#list-view .rating span.chosen
+{
+   color: #FF0000;
+}
+#choose-side
+{
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #B2B2B2;
+    display: block;
+    padding: 20px 0px;
+    width: 100%
+}
+#choose-side .side
+{
+    display: inline;
+    margin-left: 25%;
+}
+#comments
+{
+    background-color: #e5e5e5;
+    margin-bottom: 50px;
+    width: 100%;
+}
+#comments h4
+{
+    margin-bottom: 10px;
+}
+#comments .comment
+{
+    margin-top: 20px;
+    padding: 20px 0px 0px 20px;
+}
+.conspirator
+{
+    background-color: #FFFFFF;
+    color: #000000;
+    height: 75px;
+}
+.nay-sayer
+{
+    background-color: #000000;
+    color: #FFFFFF;
+    height: 75px;
+}
+#post
+{
+    display: none;
+    margin: 150px auto;
+    width: 50%;
+}
+#post input[type="text"],
+textarea
+{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #000000;
+    box-shadow: none;
+    display: block;
+    margin: 50px auto;
+    width: 100%;
+}
+textarea
+{
+    border: 2px solid #000000;
+}
+#post input[type="file"]
+{
+    border: 2px solid #000000;
+    border-color: 1px solid #000000;
+    border-radius: 2px;
+    cursor: pointer;
+    display: block;
+    height: 25px;
+    margin: 5px auto 20px auto;
+    padding-top: 5px;
+    width: 100%;
+}
+#post label
+{
+    display: block;
+    font-size: 13px;
+    text-align: center;
+}
+#btn_proof
+{
+    width: 100%;
+}
+#btn_post
+{
+    margin-left: 20%;
+    margin-top: 50px;
+    width: 60%;
+}
+#settings
+{
+    display: none;
+    margin: 75px auto 100px auto;
+    width: 50%;
+}
+#settings .avatar
+{
+    padding-left: 10%;
+}
+#settings input[type="text"],
+#settings input[type="password"],
+#settings input[type="email"]
+{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #000000;
+    box-shadow: none;
+    display: block;
+    margin: 30px auto;
+    width: 100%;
+}
+#settings input[type="file"]
+{
+    border: 2px solid #000000;
+    border-color: 1px solid #000000;
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    margin: 5px auto 90px 30px;
+    padding-top: 5px;
+    width: 50%;
+}
+#settings label
+{
+    display: block;
+    font-size: 13px;
+    margin-left: 10px;
+    text-align: left;
+}
+#btn_puzzle
+{
+    display: block;
+    margin-bottom: 50px;
+    width: 100%;
+}
+#settings .buttons
+{
+    width: 100%;
+}
+#settings .buttons button
+{
+    font-size: 10px;
+    margin-left: 2%;
+    width: 22%;
+}
+#about
+{
+    display: none;
+    text-align: center;
+}
+#about h3,
+#about p
+{
+    margin: 30px auto;
+}
