@@ -176,17 +176,18 @@ function submitPost()
 {
 	var title = document.getElementById("input_title").value;
 	var synopsis = document.getElementById("input_synopsis").value;
-	/*var proof = document.getElementById("btn_proof").files[0];
+	console.log(document.getElementById("btn_proof").files[0]);
+	var proof = document.getElementById("btn_proof").files[0];
+
+	var parseFile;
 	if (proof)
     {
-    	fileReader = new FileReader();
-    	fileReader.readAsDataURL(proof);
+    	var name = proof.name;
+    	parseFile = new Parse.File(name, proof);
     	activateModal("Upload successful", "File uploaded. <i>They</i> can't silence us now.");
     }
-    else
-    {
-    	activateModal("Upload failed", "File failed to upload!");
-    }*/
+    else parseFile = null;
+
     var query = new Parse.Query("User");
 	var Post = Parse.Object.extend("Conspiracies");
 	var post = new Post();
@@ -203,7 +204,7 @@ function submitPost()
 				post.set("believer", true);
 				post.set("commentCount", 0);
 				post.set("conspirator_count", 0);
-				//post.set("photo", proof);
+				if(parseFile !== null) post.set("photo", parseFile);
 
 				post.save(null,
 				{
@@ -227,9 +228,6 @@ function submitPost()
 			}
 		}
 	});
-
-	
-	// TODO: File upload for image proof.
 }
 function submitPostCall(victory)
 {
