@@ -261,13 +261,51 @@ function submitSettingsChange()
 	document.getElementById("login").style.display = "none";
 	document.getElementById("logout").style.display = "block";
 	document.getElementById("feeds").style.display = "block";
-	populateFeeds();
 	document.getElementById("list-view").style.display = "none";
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("post").style.display = "none";
 	document.getElementById("about").style.display = "none";
 	document.getElementById("register").style.display = "none";
-	activateModal("Settings updated", "Your settings have been updated.");
+
+	if(currentUser !== null)
+	{
+		var query = new Parse.Query("User");
+		query.equalTo("objectId", currentUser.id + "");
+		console.log("Query: ", currentUser.id);
+		query.first({
+			success: function(User)
+			{
+				console.log("Conneciton made.", User);
+				User.save(null,
+				{
+					success: function(user)
+					{
+						user.set("username", username + "");
+						user.set("password", password + "");
+						user.set("email", email + "");
+						user.save();
+						populateFeeds();
+						//User.set("Avatar", file);
+						activateModal("Update success", "Your settings were successfully updated");
+					},
+					error: function (update, error)
+					{
+						activateModal("Update failed", "<i>The Man</i> prevented your settings from updating. Try again.");
+					}
+				});
+			},
+			error: function(User, error)
+			{
+				console.log("Conneciton failed.");
+			}
+		});
+	}
+	else
+	{
+		logout();
+		activateModal("Not logged in", "You are not logged in!");
+	}
+	
 	// TODO: Query the settings to the database.
 }
 function populateFeeds()
