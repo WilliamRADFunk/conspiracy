@@ -84,18 +84,17 @@
 		</div>
 		<div id="settings">
 			<input id="input_name" type="text" value="Username"/>
-			<input id="input_pass" type="password" placeholder="Password"/>
 			<input id="input_email" type="email" value="email@gmail.com" />
 			<div class="avatar">
 				<label>Avatar</label>
 				<img id="img_avatar"src="images/placeholder.jpg" height="100px" width="100px"/>
 				<input id="input_file-avatar" type="file" name="Testing"/>
 			</div>
-			<button id="btn_puzzle">Construct Puzzle Fragment</button>
+			<button id="btn_puzzle" onclick="activateModal()">Construct Puzzle Fragment</button>
 			<div class="buttons">
 				<button id="btn_change" onclick="submitSettingsChange()">SUBMIT CHANGES</button>
-				<button id="btn_bug">REPORT A BUG</button>
-				<button id="btn_feedback">FEEDBACK</button>
+				<button id="btn_bug" onclick="activateModal()">REPORT A BUG</button>
+				<button id="btn_feedback" onclick="activateModal()">FEEDBACK</button>
 				<button id="btn_about" onclick="goAbout()">ABOUT US</button>
 			</div>
 		</div>

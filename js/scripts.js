@@ -250,11 +250,42 @@ function goSettings()
 	document.getElementById("post").style.display = "none";
 	document.getElementById("about").style.display = "none";
 	document.getElementById("register").style.display = "none";
+
+	var query = new Parse.Query("User");
+	query.equalTo("objectId", currentUser.id + "");
+	
+	query.first({
+		success: function(result)
+		{
+			populateSettingsCall(true, result);
+		},
+
+		error: function(error)
+		{
+			populateSettingsCall(false);
+		}
+	});
+}
+function populateSettingsCall(victory, result)
+{
+	var username = document.getElementById("input_name");
+	var email = document.getElementById("input_email");
+
+	if(victory)
+	{	
+		var object = result;
+
+		username.value = object.get("username");
+		email.value = object.get("email");
+	}
+	else
+	{
+		activateModal("Error!", "There was a problem retrieving your settings from the database. It seems the suits are trying to silence us.");
+	}
 }
 function submitSettingsChange()
 {
 	var username = document.getElementById("input_name").value;
-	var password = document.getElementById("input_pass").value;
 	var email = document.getElementById("input_email").value;
 	var file = document.getElementById("input_file-avatar").value;
 
@@ -271,17 +302,14 @@ function submitSettingsChange()
 	{
 		var query = new Parse.Query("User");
 		query.equalTo("objectId", currentUser.id + "");
-		console.log("Query: ", currentUser.id);
 		query.first({
 			success: function(User)
 			{
-				console.log("Conneciton made.", User);
 				User.save(null,
 				{
 					success: function(user)
 					{
 						user.set("username", username + "");
-						user.set("password", password + "");
 						user.set("email", email + "");
 						user.save();
 						populateFeeds();
@@ -361,8 +389,18 @@ function goAbout()
 }
 function activateModal(hdr, msg)
 {
-	document.getElementById("modal-header").innerHTML = hdr;
-	document.getElementById("modal-message").innerHTML = msg;
+	if(hdr !== undefined)
+	{
+		document.getElementById("modal-header").innerHTML = hdr;
+		document.getElementById("modal-message").innerHTML = msg;
+	}
+	else
+	{
+		var head = "Incomplete";
+		var message = "We only had 24 hours to complete this project. This functionality didn't make the deadline.";
+		document.getElementById("modal-header").innerHTML = head;
+		document.getElementById("modal-message").innerHTML = message;
+	}
 	document.getElementById("modal-backing").style.display = "block";
 	document.getElementById("message-box").style.display = "block";
 }
