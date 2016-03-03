@@ -124,7 +124,7 @@ function populateListView(consp)
 }
 function share()
 {
-	console.log("Sharing is caring");
+	activateModal();
 }
 function rate(id)
 {
@@ -187,37 +187,48 @@ function submitPost()
     {
     	activateModal("Upload failed", "File failed to upload!");
     }*/
-
+    var query = new Parse.Query("User");
 	var Post = Parse.Object.extend("Conspiracies");
 	var post = new Post();
 
-	if(currentUser !== null)
-	{
-		post.set("user", currentUser);
-		post.set("title", title);
-		post.set("description", synopsis);
-		//post.set("photo", proof);
-
-		post.save(null,
+	query.equalTo("objectId", currentUser.id + "");
+	query.first({
+		success: function(user)
 		{
-			success: function(post)
+			if(currentUser !== null)
 			{
-				submitPostCall(true);
-			},
-			error: function(post, error)
-			{
-				 submitPostCall(false);
+				post.set("username", user.get("username"));
+				post.set("title", title);
+				post.set("description", synopsis);
+				post.set("believer", true);
+				post.set("commentCount", 0);
+				post.set("conspirator_count", 0);
+				//post.set("photo", proof);
+
+				post.save(null,
+				{
+					success: function(post)
+					{
+						submitPostCall(true);
+					},
+					error: function(post, error)
+					{
+						 submitPostCall(false);
+					}
+				});
 			}
-		});
-	}
-	else
-	{
-		document.getElementById("input_title").value = "";
-		document.getElementById("input_synopsis").value = "";
-		document.getElementById("input_proof").value = "";
-		logout();
-		activateModal("Not logged in", "You are not logged in!");
-	}
+			else
+			{
+				document.getElementById("input_title").value = "";
+				document.getElementById("input_synopsis").value = "";
+				document.getElementById("input_proof").value = "";
+				logout();
+				activateModal("Not logged in", "You are not logged in!");
+			}
+		}
+	});
+
+	
 	// TODO: File upload for image proof.
 }
 function submitPostCall(victory)
