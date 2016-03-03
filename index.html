@@ -36,6 +36,12 @@
 			<button id="btn_register" onclick="register()">REGISTER</button>
 			<button id="btn_login" onclick="login()">LOGIN</button>
 		</div>
+		<div id="modal-backing">&nbsp;</div>
+		<div id="message-box">
+			<h4 id="modal-header">Whoops!</h4>
+			<p id="modal-message">Not good. Not good.</p>
+			<button onclick="disableModal(); return false;">OK</button>
+		</div>
 		<div id="register">
 			<input id="input_reg-username" type="text" placeholder="Username"/>
 			<input id="input_reg-pwd" type="password" placeholder="Password"/>

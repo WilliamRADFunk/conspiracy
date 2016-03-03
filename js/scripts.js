@@ -28,6 +28,7 @@ function loginCall(victory)
 		document.getElementById("login").style.display = "none";
 		document.getElementById("logout").style.display = "block";
 		document.getElementById("about").style.display = "none";
+		document.getElementById("register").style.display = "none";
 		document.getElementById("feeds").style.display = "block";
 		populateFeeds();
 		document.getElementsByTagName("nav")[0].style.display = "block";
@@ -37,7 +38,7 @@ function loginCall(victory)
 	{
 		document.getElementById("input_username").value = "";
 		document.getElementById("input_pwd").value = "";
-		alert("That username or password is not in our records.");
+		activateModal("Invalid Login", "That username or password is not in our records.");
 	}
 }
 function logout()
@@ -52,7 +53,9 @@ function logout()
 	document.getElementById("post").style.display = "none";
 	document.getElementById("about").style.display = "none";
 	document.getElementsByTagName("nav")[0].style.display = "none";
+	document.getElementById("register").style.display = "none";
 	Parse.User.logOut();
+	activateModal("Logging out", "Come back and conspire with us again sometime.");
 }
 function register()
 {
@@ -75,6 +78,7 @@ function submitRegistration()
 		success: function(user)
 		{
 			registrationCall(true);
+			document.getElementById("register").style.display = "none";
 		},
 		error: function(user, error)
 		{
@@ -87,16 +91,17 @@ function registrationCall(victory)
 	if(victory)
 	{
 		document.getElementById("login").style.display = "block";
+		document.getElementById("register").style.display = "none";
 		document.getElementsByTagName("nav")[0].style.display = "block";
+		activateModal("Welcome", "You're now registered with <i>The Cabal Effect</i>");
 	}
 	else
 	{
-		alert("You entered invalid data, or left a field empty.");
+		activateModal("Invalid Inputs", "You entered invalid data, or left a field empty.");
 	}
 }
 function populateListView(consp)
 {
-	//console.log(consp);
 	/*var Conspiracies = Parse.Object.extend("Conspiracies");
 	var query = new Parse.Query(Conspiracies);
 
@@ -116,7 +121,6 @@ function populateListView(consp)
 	document.getElementById("login").style.display = "none";
 	document.getElementById("feeds").style.display = "none";
 	document.getElementById("list-view").style.display = "block";
-	//populateListView(consp);
 }
 function share()
 {
@@ -155,6 +159,7 @@ function goHome()
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("post").style.display = "none";
 	document.getElementById("about").style.display = "none";
+	document.getElementById("register").style.display = "none";
 }
 function makePost()
 {
@@ -165,6 +170,7 @@ function makePost()
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("post").style.display = "block";
 	document.getElementById("about").style.display = "none";
+	document.getElementById("register").style.display = "none";
 }
 function submitPost()
 {
@@ -175,10 +181,11 @@ function submitPost()
     {
     	fileReader = new FileReader();
     	fileReader.readAsDataURL(proof);
+    	activateModal("Upload successful", "File uploaded. <i>They</i> can't silence us now.");
     }
     else
     {
-    	alert("File failed to upload!");
+    	activateModal("Upload failed", "File failed to upload!");
     }*/
 
 	var Post = Parse.Object.extend("Conspiracies");
@@ -209,8 +216,9 @@ function submitPost()
 		document.getElementById("input_synopsis").value = "";
 		document.getElementById("input_proof").value = "";
 		logout();
-		alert("You are not logged in!");
+		activateModal("Not logged in", "You are not logged in!");
 	}
+	// TODO: File upload for image proof.
 }
 function submitPostCall(victory)
 {
@@ -224,10 +232,11 @@ function submitPostCall(victory)
 		document.getElementById("settings").style.display = "none";
 		document.getElementById("post").style.display = "none";
 		document.getElementById("about").style.display = "none";
+		document.getElementById("register").style.display = "none";
 	}
 	else
 	{
-		alert("You entered one or more fields with invalid data, or failed to fill out an important field.");
+		activateModal("Invalid Inputs", "You entered one or more fields with invalid data, or failed to fill out an important field.");
 	}
 	
 }
@@ -240,6 +249,7 @@ function goSettings()
 	document.getElementById("settings").style.display = "block";
 	document.getElementById("post").style.display = "none";
 	document.getElementById("about").style.display = "none";
+	document.getElementById("register").style.display = "none";
 }
 function submitSettingsChange()
 {
@@ -256,6 +266,9 @@ function submitSettingsChange()
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("post").style.display = "none";
 	document.getElementById("about").style.display = "none";
+	document.getElementById("register").style.display = "none";
+	activateModal("Settings updated", "Your settings have been updated.");
+	// TODO: Query the settings to the database.
 }
 function populateFeeds()
 {
@@ -294,7 +307,7 @@ function populateFeedsCall(victory, results)
 	}
 	else
 	{
-		alert("There was a problem retrieving conspiracies from the database. It seems the suits are trying to silence us.");
+		activateModal("Error!", "There was a problem retrieving conspiracies from the database. It seems the suits are trying to silence us.");
 	}
 }
 function goAbout()
@@ -305,5 +318,18 @@ function goAbout()
 	document.getElementById("list-view").style.display = "none";
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("post").style.display = "none";
+	document.getElementById("register").style.display = "none";
 	document.getElementById("about").style.display = "block";
+}
+function activateModal(hdr, msg)
+{
+	document.getElementById("modal-header").innerHTML = hdr;
+	document.getElementById("modal-message").innerHTML = msg;
+	document.getElementById("modal-backing").style.display = "block";
+	document.getElementById("message-box").style.display = "block";
+}
+function disableModal()
+{
+	document.getElementById("modal-backing").style.display = "none";
+	document.getElementById("message-box").style.display = "none";
 }

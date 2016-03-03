@@ -141,9 +141,54 @@ nav a:hover
     margin: 150px auto;
     width: 50%;
 }
-#logout
+#logout,
+#modal-backing,
+#message-box
 {
     display: none;
+}
+#modal-backing
+{
+    background-color: #333333;
+    height: 100%;
+    left: 0px;
+    opacity: 0.5;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 1000;
+}
+#message-box
+{
+    background-color: #C6C6C6;
+    border-radius: 10px;
+    left: 20%;
+    min-height: 200px;
+    opacity: 1.0;
+    position: absolute;
+    top: 50px;
+    width: 60%;
+    z-index: 2000;
+}
+
+#modal-header
+{
+    background-color: #00444C;
+    color: #FFFFFF;
+    height: 50px;
+    padding-top: 20px;
+    text-align: center;
+}
+#modal-message
+{
+    min-height: 100px;
+    padding: 20px;
+}
+#message-box button
+{
+    height: 50px;
+    margin: 10px 45%;
+    width: 10%;
 }
 #login input[type="text"],
 #login input[type="password"]
