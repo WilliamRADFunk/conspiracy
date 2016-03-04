@@ -103,59 +103,67 @@ function registrationCall(victory)
 function populateListView(consp)
 {
 	var query = new Parse.Query("Conspiracies");
+	query.equalTo("objectId", consp.id + "");
 
-	query.equalTo("objectId", currentUser.id + "");
 	query.first({
-		success: function(user)
+		success: function(result)
 		{
-			if(currentUser !== null)
-			{
-				post.set("username", user.get("username"));
-				post.set("title", title);
-				post.set("description", synopsis);
-				post.set("believer", true);
-				post.set("commentCount", 0);
-				post.set("conspirator_count", 0);
-				if(parseFile !== null) post.set("photo", parseFile);
-
-				post.save(null,
-				{
-					success: function(post)
-					{
-						submitPostCall(true);
-					},
-					error: function(post, error)
-					{
-						 submitPostCall(false);
-					}
-				});
-			}
-			else
-			{
-				document.getElementById("input_title").value = "";
-				document.getElementById("input_synopsis").value = "";
-				document.getElementById("input_proof").value = "";
-				logout();
-				activateModal("Not logged in", "You are not logged in!");
-			}
-		}
-	});
-	/*
-	query.find({
-		success: function(results)
-		{
-			populateFeedsCall(true, results);
+			populateListViewCall(true, result);
 		},
 
 		error: function(error)
 		{
-			populateFeedsCall(false);
+			populateListViewCall(false);
 		}
 	});
-	*/
-	document.getElementById("login").style.display = "none";
-	document.getElementById("feeds").style.display = "none";
-	document.getElementById("list-view").style.display = "block";
+}
+function populateListViewCall(victory, result)
+{
+	if(victory)
+	{
+		document.getElementById("login").style.display = "none";
+		document.getElementById("feeds").style.display = "none";
+		document.getElementById("list-view").style.display = "block";
+
+		var object = result;
+		console.log(object);
+		var photo = object.get("photo")._url;
+		/*
+		<div class="feed">
+			<div class="img_main-evidence"><img src="images/placeholder.jpg" height="200px" width="200px"></div>
+			<div class="feed-content">
+				<h3>UCF is Disney!</h3>
+				<p class="author">Author: <span>evan</span></p>
+				<button class="share" onclick="share()">SHARE</button>
+				<div class="rating-system">
+					<p class="details">Rate this evidence: </p>
+					<div class="rating"><span id="star-1" onclick="rate('1')">☆</span><span id="star-2" onclick="rate('2')">☆</span><span id="star-3" onclick="rate('3')">☆</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="synopsis">UCF was secretly the creator of the concept for Disney World. Have you ever wondered why Disney is off the charts with all of its property that it currently owns? There is no way that one organization alone managed to come up with all the ideas that it has throughout the years without having outsourced any of the projects that were necessary. This is why I am suggesting that UCF is actually responsible for the large success for Disney as a whole. It’s not just all the internships that Disney siphons off of their parent company, UCF, but all the projects it has us do. LOL we basically made SPACE MOUNTAIN for them. I mean it couldn’t be less obvious. Clearly the display at UCF’s Engineering 2 building is an apparent example of Disney World wanting to extend part of their park into the schools landscape. I mean if we were just showing off the cart that was designed by UCF students, wouldn’t we have just displayed the cart alone? The tracks are connected underground to a still present track system that most likely would have joined both UCF and Disney World together. Of course, planners realized that this would most likely botch their cover, and so they went against this decision and conveniently covered up their mid construction with a statue commemorating our students.</div>
+		<div id="choose-side">
+			<div class="side"><input type="radio" name="conspire" value="yes"/> Conspirator</div>
+			<div class="side"><input type="radio" name="conspire" value="no"/> Unbeliever</div>
+		</div>
+		<div id="comments">
+			<div class="comment nay-sayer"><h4>Jorge Rodriguez:</h4><span>This article is clearly garbage. I can see the blurred pizels where the image was Photoshopped.</span></div>
+			<div class="comment conspirator"><h4>Evan Glazer:</h4><span>You can't refute this picture. No blurred lines here.</span></div>
+			<div class="comment nay-sayer"><h4>Test:</h4><span>Man this post I made was awesome</span></div>
+		</div>
+		*/
+		document.getElementById("feeds").innerHTML += '<div id="' + ident + '"' +
+		'class="feed" onclick="populateListView(this)"><div class="img_main-evidence">' +
+		'<img src="' + photo + '" height="200px" width="200px"></div>' +
+		'<div class="feed-content"><h3>' + object.get("title") + '</h3>' +
+		'<p class="author">Author: <span>' + object.get("username") + '</span></p>' +
+		'<p class="details">Conspirators: <span>  ' + object.get("conspirator_count") + '  </span>' +
+		'Comments: <span>  ' + object.get("commentCount") + '  </span></p></div></div>';
+	}
+	else
+	{
+		activateModal("Error!", "There was a problem retrieving your conspiracy from the database. It seems the suits are trying to silence us.");
+	}
 }
 function share()
 {
@@ -405,7 +413,7 @@ function populateFeedsCall(victory, results)
 		for(var i = 0; i < results.length; i++)
 		{
 			var object = results[i];
-			var ident = object.get("objectId");
+			var ident = object.id;
 			var photo = object.get("photo")._url;
 			
 			document.getElementById("feeds").innerHTML += '<div id="' + ident + '"' +
