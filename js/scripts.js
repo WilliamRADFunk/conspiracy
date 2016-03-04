@@ -102,10 +102,45 @@ function registrationCall(victory)
 }
 function populateListView(consp)
 {
-	/*var Conspiracies = Parse.Object.extend("Conspiracies");
-	var query = new Parse.Query(Conspiracies);
+	var query = new Parse.Query("Conspiracies");
 
-	//query.descending("viewCount");
+	query.equalTo("objectId", currentUser.id + "");
+	query.first({
+		success: function(user)
+		{
+			if(currentUser !== null)
+			{
+				post.set("username", user.get("username"));
+				post.set("title", title);
+				post.set("description", synopsis);
+				post.set("believer", true);
+				post.set("commentCount", 0);
+				post.set("conspirator_count", 0);
+				if(parseFile !== null) post.set("photo", parseFile);
+
+				post.save(null,
+				{
+					success: function(post)
+					{
+						submitPostCall(true);
+					},
+					error: function(post, error)
+					{
+						 submitPostCall(false);
+					}
+				});
+			}
+			else
+			{
+				document.getElementById("input_title").value = "";
+				document.getElementById("input_synopsis").value = "";
+				document.getElementById("input_proof").value = "";
+				logout();
+				activateModal("Not logged in", "You are not logged in!");
+			}
+		}
+	});
+	/*
 	query.find({
 		success: function(results)
 		{
@@ -371,9 +406,11 @@ function populateFeedsCall(victory, results)
 		{
 			var object = results[i];
 			var ident = object.get("objectId");
+			var photo = object.get("photo")._url;
+			
 			document.getElementById("feeds").innerHTML += '<div id="' + ident + '"' +
 			'class="feed" onclick="populateListView(this)"><div class="img_main-evidence">' +
-			'<img src="images/placeholder.jpg" height="200px" width="200px"></div>' +
+			'<img src="' + photo + '" height="200px" width="200px"></div>' +
 			'<div class="feed-content"><h3>' + object.get("title") + '</h3>' +
 			'<p class="author">Author: <span>' + object.get("username") + '</span></p>' +
 			'<p class="details">Conspirators: <span>  ' + object.get("conspirator_count") + '  </span>' +
