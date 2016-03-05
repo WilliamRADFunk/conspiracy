@@ -364,7 +364,7 @@ nav a:hover
 #comments
 {
     background-color: #e5e5e5;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
     width: 100%;
 }
 #comments h4
@@ -379,12 +379,16 @@ nav a:hover
 .conspirator
 {
     background-color: #FFFFFF;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
     color: #000000;
     height: 75px;
 }
 .nay-sayer
 {
     background-color: #000000;
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
     color: #FFFFFF;
     height: 75px;
 }

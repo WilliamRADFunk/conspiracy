@@ -108,16 +108,26 @@ function populateListView(consp)
 	query.first({
 		success: function(result)
 		{
-			populateListViewCall(true, result);
+			var queryComments = new Parse.Query("Comments");
+			queryComments.equalTo("conspiracyId", result.id);
+			queryComments.find({
+				success: function(results)
+				{
+					populateListViewCall(true, result, results);
+				},
+				error: function(error)
+				{
+					populateListViewCall(false);
+				}
+			});
 		},
-
 		error: function(error)
 		{
 			populateListViewCall(false);
 		}
 	});
 }
-function populateListViewCall(victory, result)
+function populateListViewCall(victory, result, results)
 {
 	if(victory)
 	{
@@ -126,39 +136,43 @@ function populateListViewCall(victory, result)
 		document.getElementById("list-view").style.display = "block";
 
 		var object = result;
+		var comments = results;
 		console.log(object);
+		console.log(comments);
 		var photo = object.get("photo")._url;
-		/*
-		<div class="feed">
-			<div class="img_main-evidence"><img src="images/placeholder.jpg" height="200px" width="200px"></div>
-			<div class="feed-content">
-				<h3>UCF is Disney!</h3>
-				<p class="author">Author: <span>evan</span></p>
-				<button class="share" onclick="share()">SHARE</button>
-				<div class="rating-system">
-					<p class="details">Rate this evidence: </p>
-					<div class="rating"><span id="star-1" onclick="rate('1')">☆</span><span id="star-2" onclick="rate('2')">☆</span><span id="star-3" onclick="rate('3')">☆</span></div>
-				</div>
-			</div>
-		</div>
-		<div class="synopsis">UCF was secretly the creator of the concept for Disney World. Have you ever wondered why Disney is off the charts with all of its property that it currently owns? There is no way that one organization alone managed to come up with all the ideas that it has throughout the years without having outsourced any of the projects that were necessary. This is why I am suggesting that UCF is actually responsible for the large success for Disney as a whole. It’s not just all the internships that Disney siphons off of their parent company, UCF, but all the projects it has us do. LOL we basically made SPACE MOUNTAIN for them. I mean it couldn’t be less obvious. Clearly the display at UCF’s Engineering 2 building is an apparent example of Disney World wanting to extend part of their park into the schools landscape. I mean if we were just showing off the cart that was designed by UCF students, wouldn’t we have just displayed the cart alone? The tracks are connected underground to a still present track system that most likely would have joined both UCF and Disney World together. Of course, planners realized that this would most likely botch their cover, and so they went against this decision and conveniently covered up their mid construction with a statue commemorating our students.</div>
-		<div id="choose-side">
-			<div class="side"><input type="radio" name="conspire" value="yes"/> Conspirator</div>
-			<div class="side"><input type="radio" name="conspire" value="no"/> Unbeliever</div>
-		</div>
-		<div id="comments">
-			<div class="comment nay-sayer"><h4>Jorge Rodriguez:</h4><span>This article is clearly garbage. I can see the blurred pizels where the image was Photoshopped.</span></div>
-			<div class="comment conspirator"><h4>Evan Glazer:</h4><span>You can't refute this picture. No blurred lines here.</span></div>
-			<div class="comment nay-sayer"><h4>Test:</h4><span>Man this post I made was awesome</span></div>
-		</div>
-		*/
-		document.getElementById("feeds").innerHTML += '<div id="' + ident + '"' +
-		'class="feed" onclick="populateListView(this)"><div class="img_main-evidence">' +
-		'<img src="' + photo + '" height="200px" width="200px"></div>' +
-		'<div class="feed-content"><h3>' + object.get("title") + '</h3>' +
-		'<p class="author">Author: <span>' + object.get("username") + '</span></p>' +
-		'<p class="details">Conspirators: <span>  ' + object.get("conspirator_count") + '  </span>' +
-		'Comments: <span>  ' + object.get("commentCount") + '  </span></p></div></div>';
+		document.getElementById("list-view").innerHTML = "" +
+			"<div class='feed'>" +
+				"<div class='img_main-evidence'><img src='" + photo + "' height='200px' width='200px'></div>" +
+				"<div class='feed-content'>" +
+					"<h3>" + object.get('title') + "</h3>" +
+					"<p class='author'>Author: <span>" + object.get('username') + "</span></p>" +
+					"<button class='share' onclick='share()''>SHARE</button>" +
+					"<div class='rating-system'>" +
+						"<p class='details'>Rate this evidence: </p>" +
+						"<div class='rating'><span id='star-1' onclick='rate(\"1\")'>☆</span><span id='star-2' onclick='rate(\"2\")'>☆</span><span id='star-3' onclick='rate(\"3\")'>☆</span></div>" +
+					"</div>" +
+				"</div>" +
+			"</div>" +
+			"<div class='synopsis'>" + object.get('description') + "</div>" +
+			"<div id='choose-side'>" +
+				"<div class='side'><input type='radio' name='conspire' value='yes'/> Conspirator</div>" +
+				"<div class='side'><input type='radio' name='conspire' value='no'/> Unbeliever</div>" +
+			"</div>" +
+			"<div id='comments'>";
+
+		for(var i = 0; i < Object.keys(comments).length; i++)
+		{
+			var consp;
+			if(comments[i].get('suit')) consp = "conspirator";
+			else consp = "nay-sayer";
+			document.getElementById("list-view").innerHTML += "<div class='comment " + consp + "'><h4>" + comments[i].get('username') + ": </h4><span>" + comments[i].get('content') + "</span></div>";
+		}
+				/*
+				<div class="comment nay-sayer"><h4>Jorge Rodriguez:</h4><span>This article is clearly garbage. I can see the blurred pizels where the image was Photoshopped.</span></div>
+				<div class="comment conspirator"><h4>Evan Glazer:</h4><span>You can't refute this picture. No blurred lines here.</span></div>
+				<div class="comment nay-sayer"><h4>Test:</h4><span>Man this post I made was awesome</span></div>
+				*/
+		document.getElementById("list-view").innerHTML += "</div>";
 	}
 	else
 	{
@@ -451,7 +465,7 @@ function activateModal(hdr, msg)
 	else
 	{
 		var head = "Incomplete";
-		var message = "We only had 24 hours to complete this project. This functionality didn't make the deadline.";
+		var message = "We only had 17 hours to complete this project. This functionality didn't make the deadline.";
 		document.getElementById("modal-header").innerHTML = head;
 		document.getElementById("modal-message").innerHTML = message;
 	}
